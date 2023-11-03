@@ -1,8 +1,9 @@
-import './App.module.scss'
+import React from 'react'
+import Routers from './Routers'
 
-function App() {
+const App = () => {
   return (
-    <h1>teste</h1>
+    <Routers />
   )
 }
 
