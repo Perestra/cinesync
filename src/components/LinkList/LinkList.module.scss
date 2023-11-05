@@ -1,7 +1,14 @@
 .list {
     & a {
-        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 8px;
         text-decoration: none;
+    }
+
+    &__text {
+        color: white;
         font-size: 0.875rem;
         font-weight: 400;
         
@@ -10,5 +17,11 @@
         &:hover {
             color: #ED8423;
         }
+    }
+
+    &__icon {
+        width: 18px;
+        height: 18px;
+        color: white;
     }
 }
