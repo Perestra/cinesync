@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className={ styles.header }>
       <div className={ styles.header__container }>
-        <img className={ styles.header__logo } src={ logoWhite } alt='Logo da CineSync' />
+        <img className={ styles.header__logo } src={ logoWhite } alt='Logo da CineSync na cor branca' />
         <div className={ styles.header__nav }>
           <NavList />
         </div>
