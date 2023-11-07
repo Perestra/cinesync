@@ -8,20 +8,20 @@
     }
 
     &__text {
-        color: white;
+        color: var(--primaryText);
         font-size: 0.875rem;
         font-weight: 400;
         
         transition: all 0.2s ease-in-out;
 
         &:hover {
-            color: #ED8423;
+            color: var(--primaryOrange);
         }
     }
 
     &__icon {
         width: 18px;
         height: 18px;
-        color: white;
+        color: var(--primaryText);
     }
 }
