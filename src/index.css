@@ -6,10 +6,20 @@
     box-sizing: border-box;
 
     font-family: 'Oxygen', sans-serif;
-  }
-  html {  
-    scroll-behavior: smooth;
-  }
-  body {
-    background-color: #0C0C0C;
-  }
+}
+html {  
+  scroll-behavior: smooth;
+}
+body {
+  background-color: var(--backgroundBody);
+}
+:root {
+  --primaryText: #FEFEFE;
+  --secondaryText: #1E1E1E;
+  --tertiaryText: #C0C0C0;
+  --backgroundBody: #0C0C0C;
+  --primaryLinearButton: linear-gradient(180deg, #ED8423 0%, #FF9838 100%);
+  --secondaryLinearButton: linear-gradient(180deg, #E1E1E1 0%, #F0F0F0 100%);
+  --primaryOrange: #ED8423; 
+  --secondaryOrange: #FF9838;
+}
