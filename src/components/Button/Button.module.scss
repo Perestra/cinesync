@@ -1,0 +1,13 @@
+.button {
+    border: 1px solid var(--primaryText);;
+    border-radius: 5px;
+    background: var(--primaryLinearButton);
+    padding: 10px 50px;
+    cursor: pointer;
+
+    &__text {
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: var(--primaryText);
+    }
+}
