@@ -1,0 +1,129 @@
+.login {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 80px;
+
+    &__main {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    &__section {
+        border-top: 1px solid var(--primaryText);
+        border-bottom: 1px solid var(--primaryText);
+
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        padding: 35px 0;
+
+        display: flex;
+        flex-direction: column;
+        row-gap: 45px;
+    }
+
+    &__form {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        row-gap: 45px;
+    }
+
+    &__field {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label {
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: var(--primaryText);
+    }
+
+    &__password {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        justify-content: space-between;
+
+        & > a {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--primaryOrange);
+        }
+    }
+
+    &__input {
+        width: 100%;
+        height: 35px;
+
+        background: var(--primaryText);
+        border: 1px solid var(--tertiaryText);
+        border-radius: 7px;
+        padding: 0 5px;
+        outline: none;
+
+        &::placeholder {
+            font-size: 0.75rem;
+            color: var(--tertiaryText);
+        }
+    }
+
+    &__btnSubmit {
+        width: 100%;
+        height: auto;
+        
+        border: 1px solid var(--primaryText);
+        border-radius: 5px;
+        background: var(--primaryLinearButton);
+        padding: 10px 50px;
+        cursor: pointer;
+    
+        & > p {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--primaryText);
+        }
+    }
+
+    &__createAccount {
+        width: 100%;
+        height: auto;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 10px;
+    }
+
+    &__btnCreateAccount {
+        width: 100%;
+        height: auto;
+        
+        border: 1px solid var(--secondaryText);
+        border-radius: 5px;
+        background: var(--secondaryLinearButton);
+        padding: 10px 50px;
+        cursor: pointer;
+    
+        & > p {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--secondaryText);
+        }
+    }
+}
