@@ -19,7 +19,7 @@ body {
   --tertiaryText: #C0C0C0;
   --backgroundBody: #0C0C0C;
   --primaryLinearButton: linear-gradient(180deg, #ED8423 0%, #FF9838 100%);
-  --secondaryLinearButton: linear-gradient(180deg, #E1E1E1 0%, #F0F0F0 100%);
+  --secondaryLinearButton: linear-gradient(180deg, #C0C0C0 0%, #FEFEFE 100%);
   --primaryOrange: #ED8423; 
   --secondaryOrange: #FF9838;
 }
