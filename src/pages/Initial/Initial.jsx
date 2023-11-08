@@ -25,7 +25,7 @@ const Initial = () => {
         <Header />
         <div className={ styles.initial__presentation }>
           <h1 className={ styles.initial__title }>Seu cinema, sua sincronia. <br/> Tudo o que você ama, onde você estiver.</h1>
-          <Button title='Entrar com a minha conta' />
+          <Button className={ styles.initial__button } type='button' title='Entrar com a minha conta' />
         </div>
       </div>
       <main className={ styles.initial__main }>
