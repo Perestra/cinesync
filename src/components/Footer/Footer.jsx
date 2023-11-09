@@ -25,11 +25,11 @@ const Footer = () => {
                 href={ media.link } 
                 target="_blank" 
                 rel="noopener noreferrer"
-                ><Text text={ media.name } />
+                ><Text className='white' text={ media.name } />
                 </a>
             )}
         </div>
-        <Text text='© CineSync. Desenvolvido por Danilo Perestrelo' />
+        <Text className='white' text='© CineSync. Desenvolvido por Danilo Perestrelo' />
     </footer>
   )
 }

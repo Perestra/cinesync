@@ -1,5 +1,24 @@
-.text {
+.white {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--primaryText);
+}
+.gray {
     font-size: 0.875rem;
     font-weight: 400;
     color: var(--tertiaryText);
+}
+.black {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--secondaryText);
+}
+.error {
+    position: absolute;
+    bottom: -17px;
+    left: 0;
+    
+    font-size: 0.75rem;
+    font-weight: 200;
+    color: red;
 }
