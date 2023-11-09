@@ -25,14 +25,14 @@ const Initial = () => {
         <Header />
         <div className={ styles.initial__presentation }>
           <h1 className={ styles.initial__title }>Seu cinema, sua sincronia. <br/> Tudo o que você ama, onde você estiver.</h1>
-          <Button className={ styles.initial__button } type='button' title='Entrar com a minha conta' />
+          <Button btnClassName={ styles.initial__button } txtClassName='white' type='button' title='Entrar com a minha conta' />
         </div>
       </div>
       <main className={ styles.initial__main }>
         <section className={ styles.initial__yourWay }>
           <div className={ styles.initial__description }>
             <Subtitle text='Assista do seu jeito'/>
-            <Text text='Aproveite a tela grande da TV ou assista no tablet, laptop, celular e outros aparelhos. Nossa seleção de títulos em 4K não para de crescer.'/>  
+            <Text className='gray' text='Aproveite a tela grande da TV ou assista no tablet, laptop, celular e outros aparelhos. Nossa seleção de títulos em 4K não para de crescer.'/>  
           </div>
           <img 
             className={ styles.initial__image }
@@ -46,19 +46,19 @@ const Initial = () => {
             <div className={ styles.initial__device }>
               <IoIosLaptop className={ styles.initial__icons } />
               <div className={ styles.initial__gadgets }>
-                {devices[0].pc.map( (device, index) => <Text key={ index } text={ device }/> )}
+                {devices[0].pc.map( (device, index) => <Text className='gray' key={ index } text={ device }/> )}
               </div>
             </div>
             <div className={ styles.initial__device }>
               <SlScreenDesktop className={ styles.initial__icons } />
               <div className={ styles.initial__gadgets }>
-                {devices[1].tv.map( (device, index) => <Text key={ index } text={ device }/> )}
+                {devices[1].tv.map( (device, index) => <Text className='gray' key={ index } text={ device }/> )}
               </div>
             </div>
             <div className={ styles.initial__device }>
               <HiOutlineDevicePhoneMobile className={ styles.initial__icons } />
               <div className={ styles.initial__gadgets }>
-                {devices[2].cel.map( (device, index) => <Text key={ index } text={ device }/> )}
+                {devices[2].cel.map( (device, index) => <Text className='gray' key={ index } text={ device }/> )}
               </div>
             </div>
           </div>
