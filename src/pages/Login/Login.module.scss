@@ -43,6 +43,7 @@
         width: 100%;
         height: auto;
 
+        position: relative;
         display: flex;
         flex-direction: column;
     }
@@ -81,6 +82,9 @@
             font-size: 0.75rem;
             color: var(--tertiaryText);
         }
+    }
+    &__inputError {
+        border: 1px solid red;
     }
 
     &__btnSubmit {
