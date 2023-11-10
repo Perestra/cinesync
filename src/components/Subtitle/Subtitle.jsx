@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from './Subtitle.module.scss'
 
-const Subtitle = ({ text }) => {
+const Subtitle = ({ text, color }) => {
   return (
-    <h2 className={ styles.subtitle }>{ text }</h2>
+    <h2 className={ `${styles.subtitle} ${styles[color]}` }>{ text }</h2>
   )
 }
 
