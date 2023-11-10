@@ -14,5 +14,14 @@
         column-gap: 50px;
         
     }
+}
 
+.visible {
+    display: flex;
+}
+.nonVisible {
+    display: none;
+}
+.center {
+    justify-content: center;
 }
