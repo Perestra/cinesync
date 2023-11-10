@@ -10,6 +10,7 @@ import yourWay from 'src/assets/images/yourWay.png'
 import { IoIosLaptop } from 'react-icons/io'
 import { SlScreenDesktop } from 'react-icons/sl'
 import { HiOutlineDevicePhoneMobile } from 'react-icons/hi2'
+import { useNavigate } from 'react-router-dom'
 
 const Initial = () => {
 
@@ -19,19 +20,21 @@ const Initial = () => {
     {cel:["Celulares e Tablets Android","iPhone e iPad"]}
   ]
 
+  const navigate = useNavigate()
+
   return (
     <div className={ styles.initial }>
       <div className={ styles.initial__header }>
-        <Header />
+        <Header display='nonVisible' />
         <div className={ styles.initial__presentation }>
           <h1 className={ styles.initial__title }>Seu cinema, sua sincronia. <br/> Tudo o que você ama, onde você estiver.</h1>
-          <Button btnClassName={ styles.initial__button } txtClassName='white' type='button' title='Entrar com a minha conta' />
+          <Button btnClassName={ styles.initial__button } txtClassName='white' title='Entrar com a minha conta' type='button' onClick={ () => navigate("/login") } />
         </div>
       </div>
       <main className={ styles.initial__main }>
         <section className={ styles.initial__yourWay }>
           <div className={ styles.initial__description }>
-            <Subtitle text='Assista do seu jeito'/>
+            <Subtitle text='Assista do seu jeito' color='white'/>
             <Text className='gray' text='Aproveite a tela grande da TV ou assista no tablet, laptop, celular e outros aparelhos. Nossa seleção de títulos em 4K não para de crescer.'/>  
           </div>
           <img 
@@ -41,7 +44,7 @@ const Initial = () => {
           </img>
         </section>
         <section className={ styles.initial__availability }>
-          <Subtitle text="Disponível nos seus dispositivos favoritos"/>
+          <Subtitle text="Disponível nos seus dispositivos favoritos" color='white'/>
           <div className={ styles.initial__devices}>
             <div className={ styles.initial__device }>
               <IoIosLaptop className={ styles.initial__icons } />
