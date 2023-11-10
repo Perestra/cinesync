@@ -1,0 +1,97 @@
+.createAccount {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 80px;
+
+    &__main {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    &__section {
+        border-top: 1px solid var(--primaryText);
+        border-bottom: 1px solid var(--primaryText);
+
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        padding: 35px 0;
+
+        display: flex;
+        flex-direction: column;
+        row-gap: 45px;
+    }
+
+    &__form {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        row-gap: 45px;
+    }
+
+    &__iconError {
+        width: 20px;
+        height: auto;
+        color: red;
+    }
+
+    &__terms {
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: var(--primaryOrange);
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    &__btnSubmit {
+        width: 100%;
+        height: auto;
+        
+        border: 1px solid var(--primaryText);
+        border-radius: 5px;
+        background: var(--primaryLinearButton);
+        padding: 10px 50px;
+        cursor: pointer;
+    
+        & > p {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--primaryText);
+        }
+    }
+
+    &__login {
+        width: 100%;
+        height: auto;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 10px;
+    }
+
+    &__btnlogin {
+        width: 100%;
+        height: auto;
+        
+        border: 1px solid var(--secondaryText);
+        border-radius: 5px;
+        background: var(--secondaryLinearButton);
+        padding: 10px 50px;
+        cursor: pointer;
+    
+        & > p {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--secondaryText);
+        }
+    }
+}
