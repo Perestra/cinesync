@@ -1,0 +1,37 @@
+.form{
+    width: 100%;
+    height: auto;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__field {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        align-items: center;
+        column-gap: 7px;
+    }
+
+    &__checkbox {
+        width: 15px;
+        height: 15px;
+
+        background: var(--primaryText);
+        border: 1px solid var(--tertiaryText);
+    }
+
+    &__checkBoxError {
+        border: 5px solid red;
+    }
+
+    &__label {
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: var(--primaryText);
+    }
+}
+
