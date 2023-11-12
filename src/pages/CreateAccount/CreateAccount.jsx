@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './CreateAccount.module.scss'
 
 import Header from 'src/components/Header/Header'
@@ -12,20 +12,23 @@ import { useForm } from 'react-hook-form'
 import { v4 as uuid } from 'uuid'
 import { useNavigate } from 'react-router-dom'
 import { TbAlertCircleFilled } from 'react-icons/tb'
-import useLocalStorage from 'use-local-storage'
-
+import { AccountContext } from 'src/context/AccountContext'
 
 const CreateAccount = () => {
 
+    const { accounts, setAccounts } = useContext(AccountContext)
     const navigate = useNavigate()
     const { register, handleSubmit, watch, formState:{ errors }, } = useForm()
 
-    const [accounts, setAccounts] = useLocalStorage('Account', [])
-    
     const watchPassword = watch("password")
 
+    const isValidUsername = value => {
+        const findUsername = accounts.find(account => value === account.username)
+        return findUsername
+    }
+
     const createAccount = data => {
-        setAccounts([...accounts, data])
+        if(!isValidUsername(data.username)) setAccounts([...accounts, data])
     }
     
     const onSubmit = data => {
@@ -34,7 +37,8 @@ const CreateAccount = () => {
             fullname: data.fullname,
             username: data.username,
             email: data.email,
-            password: data.password
+            password: data.password,
+            logged: false
         }
         createAccount(infoAccount)
     } 
@@ -67,8 +71,9 @@ const CreateAccount = () => {
                         styleClassName={errors?.username && "form__inputError"}
                         register={register}
                         required
+                        validate={value => !isValidUsername(value)}
                         icon={errors?.username && <TbAlertCircleFilled className={ styles.createAccount__iconError } />}
-                        errorText= { errors?.username?.type === 'required' && <Text className='error' text='Este campo é obrigatório!' /> }
+                        errorText= { errors?.username?.type === 'required'? <Text className='error' text='Este campo é obrigatório!' /> : errors?.username?.type === 'validate'? <Text className='error' text='Este usuário já existe!' /> : "" }
                     />
                     <InputForm 
                         name='email'
@@ -117,6 +122,7 @@ const CreateAccount = () => {
                         errorText= { errors?.acceptTerms?.type === 'required' && <Text className='error' text='Você deve aceitar os termos de serviço!' /> }
                     />
                     <Button btnClassName={ styles.createAccount__btnSubmit } txtClassName='white' type='submit' title='Criar conta'/> 
+                    {/* {  console.log(errors) } */}
                 </form>     
                 <div className={ styles.createAccount__login }>
                     <Text className='gray' text='Já possui uma conta?'/>
