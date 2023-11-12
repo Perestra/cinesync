@@ -1,21 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './Login.module.scss'
 
 import Header from 'src/components/Header/Header'
+import InputForm from 'src/components/InputForm/InputForm'
 import Subtitle from 'src/components/Subtitle/Subtitle'
 import Button from 'src/components/Button/Button'
 import Text from 'src/components/Text/Text'
 
 import { useForm } from 'react-hook-form'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { AccountContext } from 'src/context/AccountContext'
+import { TbAlertCircleFilled } from 'react-icons/tb'
 
 const Login = () => {
 
+    const { accounts } = useContext(AccountContext)
     const navigate = useNavigate()
     const { register, handleSubmit, formState:{ errors }, } = useForm()
-
     const onSubmit = data => {
-        console.log(data)
+        const findAccount = accounts.find(account => data.username === account.username && data.password === account.password)
+        if(findAccount) {
+            findAccount.logged = true
+            navigate('/home')
+        }
     } 
 
   return (
@@ -25,33 +32,31 @@ const Login = () => {
             <section className={ styles.login__section }>
                 <Subtitle text='Login' color='orange'/>   
                 <form className={ styles.login__form } onSubmit={handleSubmit(onSubmit)}>
-                    <div className={ styles.login__field}>
-                        <label htmlFor="username"className={ styles.login__label } >Usuário</label>
-                        <input 
-                            type="text" 
-                            name="username" 
-                            id="username"
-                            placeholder='Digite seu usuário'
-                            className={ `${styles.login__input} ${errors?.username && styles.login__inputError}` }
-                            {...register("username", { required: true })}
-                        />    
-                        { errors?.username?.type === 'required' && <Text className='error' text='Este campo é obrigatório!' /> }
-                    </div>
-                    <div className={ styles.login__field }>
-                        <div className={ styles.login__password }>
-                            <label htmlFor="password"className={ styles.login__label } >Senha</label>    
-                            <NavLink to='/'>Esqueci minha senha</NavLink> 
-                        </div>
-                        <input 
-                            type="password" 
-                            name="password" 
-                            id="password" 
-                            placeholder='Digite sua senha'
-                            className={ `${styles.login__input} ${errors?.username && styles.login__inputError}` }
-                            {...register("password", { required: true })}
-                        /> 
-                        { errors?.password?.type === 'required' && <Text className='error' text='Este campo é obrigatório!' /> }   
-                    </div>
+                    <InputForm 
+                        name='username'
+                        label='Usuário'
+                        type='text'
+                        placeholder='Digite seu usuário'
+                        typeClassName='form__input'
+                        styleClassName={errors?.username && "form__inputError"}
+                        register={register}
+                        required
+                        icon={errors?.username && <TbAlertCircleFilled className={ styles.login__iconError } />}
+                        errorText= { errors?.username?.type === 'required' && <Text className='error' text='Este campo é obrigatório!' /> }
+                    />
+                    <InputForm 
+                        name='password'
+                        label='Senha'
+                        sideLabel={ <NavLink className={styles.login__sideLabel} to='/'>Esqueci minha senha</NavLink>  }
+                        type='password'
+                        placeholder='Digite sua senha'
+                        typeClassName='form__input'
+                        styleClassName={errors?.password && "form__inputError"}
+                        register={register}
+                        required
+                        icon={errors?.password && <TbAlertCircleFilled className={ styles.login__iconError } />}
+                        errorText= { errors?.password?.type === 'required' && <Text className='error' text='Este campo é obrigatório!' /> }
+                    />
                     <Button btnClassName={ styles.login__btnSubmit } txtClassName='white' type='submit' title='Entrar'/>
                 </form>     
                 <div className={ styles.login__createAccount }>
