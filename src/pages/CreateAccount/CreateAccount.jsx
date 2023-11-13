@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styles from './CreateAccount.module.scss'
 
 import Header from 'src/components/Header/Header'
@@ -9,39 +9,17 @@ import Button from 'src/components/Button/Button'
 import Text from 'src/components/Text/Text'
 
 import { useForm } from 'react-hook-form'
-import { v4 as uuid } from 'uuid'
 import { useNavigate } from 'react-router-dom'
 import { TbAlertCircleFilled } from 'react-icons/tb'
-import { AccountContext } from 'src/context/AccountContext'
+import { useAccountContext } from 'src/hooks/useAccountContext'
 
 const CreateAccount = () => {
 
-    const { accounts, setAccounts } = useContext(AccountContext)
+    const { submitGenerateAccount, isValidUsername } = useAccountContext()
     const navigate = useNavigate()
     const { register, handleSubmit, watch, formState:{ errors }, } = useForm()
 
     const watchPassword = watch("password")
-
-    const isValidUsername = value => {
-        const findUsername = accounts.find(account => value === account.username)
-        return findUsername
-    }
-
-    const createAccount = data => {
-        if(!isValidUsername(data.username)) setAccounts([...accounts, data])
-    }
-    
-    const onSubmit = data => {
-        const infoAccount = {
-            id: uuid(),
-            fullname: data.fullname,
-            username: data.username,
-            email: data.email,
-            password: data.password,
-            logged: false
-        }
-        createAccount(infoAccount)
-    } 
 
   return (
     <div className={ styles.createAccount }>
@@ -49,7 +27,7 @@ const CreateAccount = () => {
         <main className={ styles.createAccount__main }>
             <section className={ styles.createAccount__section }>
                 <Subtitle text='Criar conta' color='orange'/>   
-                <form className={ styles.createAccount__form } onSubmit={handleSubmit(onSubmit)}>
+                <form className={ styles.createAccount__form } onSubmit={handleSubmit(submitGenerateAccount)}>
                     <InputForm 
                         name='fullname'
                         label='Nome completo'
@@ -122,7 +100,6 @@ const CreateAccount = () => {
                         errorText= { errors?.acceptTerms?.type === 'required' && <Text className='error' text='Você deve aceitar os termos de serviço!' /> }
                     />
                     <Button btnClassName={ styles.createAccount__btnSubmit } txtClassName='white' type='submit' title='Criar conta'/> 
-                    {/* {  console.log(errors) } */}
                 </form>     
                 <div className={ styles.createAccount__login }>
                     <Text className='gray' text='Já possui uma conta?'/>

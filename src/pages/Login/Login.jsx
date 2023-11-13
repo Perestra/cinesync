@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styles from './Login.module.scss'
 
 import Header from 'src/components/Header/Header'
@@ -9,21 +9,14 @@ import Text from 'src/components/Text/Text'
 
 import { useForm } from 'react-hook-form'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { AccountContext } from 'src/context/AccountContext'
 import { TbAlertCircleFilled } from 'react-icons/tb'
+import { useAccountContext } from 'src/hooks/useAccountContext'
 
 const Login = () => {
 
-    const { accounts } = useContext(AccountContext)
+    const { submitLoginUser } = useAccountContext()
     const navigate = useNavigate()
     const { register, handleSubmit, formState:{ errors }, } = useForm()
-    const onSubmit = data => {
-        const findAccount = accounts.find(account => data.username === account.username && data.password === account.password)
-        if(findAccount) {
-            findAccount.logged = true
-            navigate('/home')
-        }
-    } 
 
   return (
     <div className={ styles.login }>
@@ -31,7 +24,7 @@ const Login = () => {
         <main className={ styles.login__main }>
             <section className={ styles.login__section }>
                 <Subtitle text='Login' color='orange'/>   
-                <form className={ styles.login__form } onSubmit={handleSubmit(onSubmit)}>
+                <form className={ styles.login__form } onSubmit={handleSubmit(submitLoginUser)}>
                     <InputForm 
                         name='username'
                         label='Usuário'
