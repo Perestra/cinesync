@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { AccountProvider } from 'src/context/AccountContext'
+import { AccountProvider } from 'src/contexts/AccountContext'
 
 import Initial from 'src/pages/Initial/Initial'
 import Login from 'src/pages/Login/Login'
