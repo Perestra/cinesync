@@ -40,7 +40,7 @@ const Login = () => {
                     <InputForm 
                         name='password'
                         label='Senha'
-                        sideLabel={ <NavLink className={styles.login__sideLabel} to='/'>Esqueci minha senha</NavLink>  }
+                        sideLabel={ <NavLink className={styles.login__sideLabel} to='/esqueciminhasenha'>Esqueci minha senha</NavLink>  }
                         type='password'
                         placeholder='Digite sua senha'
                         typeClassName='form__input'

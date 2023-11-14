@@ -16,8 +16,10 @@ const InputForm = ({ name, label, sideLabel, type, placeholder, styleClassName, 
         />
         {icon}
       </div>
-      { sideLabel }
-      { errorText }
+      <div className={ styles.form__infos }>
+        { errorText }
+        { sideLabel }
+      </div>
     </div>
   )
 }
