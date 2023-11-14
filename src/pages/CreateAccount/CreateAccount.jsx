@@ -15,7 +15,7 @@ import { useAccountContext } from 'src/hooks/useAccountContext'
 
 const CreateAccount = () => {
 
-    const { submitGenerateAccount, isValidUsername } = useAccountContext()
+    const { submitGenerateAccount, isValidUsername, isValidEmail } = useAccountContext()
     const navigate = useNavigate()
     const { register, handleSubmit, watch, formState:{ errors }, } = useForm()
 
@@ -51,7 +51,7 @@ const CreateAccount = () => {
                         required
                         validate={value => !isValidUsername(value)}
                         icon={errors?.username && <TbAlertCircleFilled className={ styles.createAccount__iconError } />}
-                        errorText= { errors?.username?.type === 'required'? <Text className='error' text='Este campo é obrigatório!' /> : errors?.username?.type === 'validate'? <Text className='error' text='Este usuário já existe!' /> : "" }
+                        errorText= { errors?.username?.type === 'required'? <Text className='error' text='Este campo é obrigatório!' /> : errors?.username?.type === 'validate'? <Text className='error' text='Já existe uma conta com esse usuário!' /> : "" }
                     />
                     <InputForm 
                         name='email'
@@ -62,8 +62,9 @@ const CreateAccount = () => {
                         styleClassName={errors?.email && "form__inputError"}
                         register={register}
                         required
+                        validate={value => !isValidEmail(value)}
                         icon={errors?.email && <TbAlertCircleFilled className={ styles.createAccount__iconError } />}
-                        errorText= { errors?.email?.type === 'required' && <Text className='error' text='Este campo é obrigatório!' /> }
+                        errorText= { errors?.email?.type === 'required'? <Text className='error' text='Este campo é obrigatório!' /> : errors?.email?.type === 'validate'? <Text className='error' text='Já existe uma conta com esse e-mail!' /> : "" }
                     />
                     <InputForm 
                         name='password'
@@ -99,8 +100,8 @@ const CreateAccount = () => {
                         icon={errors?.acceptTerms && <TbAlertCircleFilled className={ styles.createAccount__iconError } />}
                         errorText= { errors?.acceptTerms?.type === 'required' && <Text className='error' text='Você deve aceitar os termos de serviço!' /> }
                     />
-                    <Button btnClassName={ styles.createAccount__btnSubmit } txtClassName='white' type='submit' title='Criar conta'/> 
-                </form>     
+                    <Button btnClassName={ styles.createAccount__btnSubmit } txtClassName='white' type='submit' title='Criar conta' /> 
+                </form>   
                 <div className={ styles.createAccount__login }>
                     <Text className='gray' text='Já possui uma conta?'/>
                     <Button btnClassName={ styles.createAccount__btnlogin } txtClassName='black' title='Ir para o login' onClick={ () => navigate('/login') }/>

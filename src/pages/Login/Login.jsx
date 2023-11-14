@@ -18,7 +18,7 @@ const Login = () => {
     const navigate = useNavigate()
     const { register, handleSubmit, formState:{ errors }, } = useForm()
 
-  return (
+    return (
     <div className={ styles.login }>
         <Header display='nonVisible' content='center'/>
         <main className={ styles.login__main }>
