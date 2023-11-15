@@ -8,6 +8,7 @@ import Login from 'src/pages/Login/Login'
 import CreateAccount from 'src/pages/CreateAccount/CreateAccount'
 import ForgotPassword from 'src/pages/ForgotPassword/ForgotPassword'
 import Footer from 'src/components/Footer/Footer'
+import Home from 'src/pages/Home/Home'
 
 const Routers = () => {
   return (
@@ -18,6 +19,7 @@ const Routers = () => {
           <Route path='/login' element={ <Login /> } />
           <Route path='/criarconta' element={ <CreateAccount /> } />
           <Route path='/esqueciminhasenha' element={ <ForgotPassword /> } />
+          <Route path='/inicio' element={ <Home /> } />
         </Routes>
       </AccountProvider>
       <Footer />

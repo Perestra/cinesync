@@ -50,7 +50,7 @@ export function useAccountContext() {
         const findedAccount = accounts.find(account => data.username === account.username && data.password === account.password)
         if(findedAccount) {
             // findedAccount.logged = true
-            navigate('/home')
+            navigate('/inicio')
         } 
         return findedAccount
     } 
