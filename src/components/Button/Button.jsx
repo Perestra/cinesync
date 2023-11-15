@@ -1,9 +1,10 @@
 import React from 'react'
 import Text from 'src/components/Text/Text'
 
-const Button = ({ type, btnClassName, txtClassName, onClick, title }) => {
+const Button = ({ type, btnClassName, txtClassName, onClick, title, icon }) => {
   return (
     <button type={ type } className={ btnClassName } onClick={ onClick }>
+      { icon }
       <Text className={txtClassName} text={ title } />
     </button>
   )
