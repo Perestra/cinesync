@@ -60,12 +60,6 @@
         background: var(--primaryLinearButton);
         padding: 10px 50px;
         cursor: pointer;
-    
-        & > p {
-            font-size: 0.875rem;
-            font-weight: 400;
-            color: var(--primaryText);
-        }
     }
 
     &__createAccount {
@@ -87,11 +81,5 @@
         background: var(--secondaryLinearButton);
         padding: 10px 50px;
         cursor: pointer;
-    
-        & > p {
-            font-size: 0.875rem;
-            font-weight: 400;
-            color: var(--secondaryText);
-        }
     }
 }
