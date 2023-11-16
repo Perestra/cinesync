@@ -11,16 +11,20 @@ import { PiTelevisionFill } from 'react-icons/pi'
 const NavList = () => {
 
   const listHeader = [
-    {link:"inicio",
+    {title:"Início",
+     link:"/inicio",
      Icon:AiFillHome 
     }, 
-    {link:"minha lista",
+    {title:"Minha lista",
+     link:"/minhalista",
      Icon:HiPlus 
     }, 
-    {link:"filmes",
+    {title:"Filmes",
+     link:"/filmes",
      Icon:RiMovie2Fill 
     }, 
-    {link:"series",
+    {title:"Séries",
+     link:"/series",
      Icon:PiTelevisionFill 
     }
   ]
@@ -31,9 +35,9 @@ const NavList = () => {
            { listHeader.map( (item,index) => 
               <LinkList 
                 key={ index } 
-                to={ item.link.split(' ').join('') } 
+                to={ item.link } 
                 Icon={ item.Icon } 
-                title={item.link.toUpperCase() } 
+                title={ item.title } 
               />
             )}
         </ul>
