@@ -6,9 +6,7 @@ import { NavLink } from 'react-router-dom'
 const LinkList = ({ to, Icon, title }) => {
 
   const activeStyle = {
-    color: '#FF4655',
-    borderBottom: '2px solid #FFF',
-    paddingBottom: '5px',
+    color: '#ED8423',
     transition: 'all ease-in-out 0.2s'
 }
 
