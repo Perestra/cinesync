@@ -1,0 +1,77 @@
+.HighlightFilm {
+    width: 100%;
+    max-width: 90%;
+    height: auto;
+    margin: auto;
+
+    &__data {
+        width: 100%;
+        max-width: 700px;
+        height: auto;
+    
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        row-gap: 45px;
+    
+        & > p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+        }
+    }
+    
+    &__buttons {
+        display: flex;
+        align-items: flex-start;
+        column-gap: 30px;
+    }
+    
+    &__btnPlay {
+        width: 100%;
+        height: auto;
+        
+        border: 1px solid var(--primaryText);
+        border-radius: 10px;
+        background: var(--primaryLinearButton);
+        padding: 7px 15px;
+        cursor: pointer;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 5px;
+    }
+    
+    &__btnKnowMore {
+        width: 100%;
+        height: auto;
+        
+        border: 1px solid var(--secondaryText);
+        border-radius: 10px;
+        background: var(--secondaryLinearButton);
+        padding: 7px 15px;
+        cursor: pointer;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 5px;  
+    }
+    
+    &__iconPlay {
+        width: 20px;
+        height: 20px;
+        color: var(--primaryText);
+    }
+    
+    &__iconKnowMore {
+        width: 20px;
+        height: 20px;
+        color: var(--secondaryText);
+    }
+}
+
