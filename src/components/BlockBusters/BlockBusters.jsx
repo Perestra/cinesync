@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './BlockBusters.module.scss'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -9,7 +9,7 @@ import tmdb from 'src/api/tmdbApi';
 import Slider from 'react-slick'
 import { useAxios } from 'src/hooks/useAxios';
 
-const BlockBusters = ({ posterTitle, url }) => {
+const BlockBusters = ({ posterTitle, url, getBlockBusterData }) => {
 
     const sliderConfig = {
         infinite: false,
@@ -28,12 +28,13 @@ const BlockBusters = ({ posterTitle, url }) => {
     <section className={ styles.blockbusters }>
         <Subtitle color='white' text={ posterTitle } />
             <Slider { ...sliderConfig }>
-                { data.map( (item, index) => 
+                { data.map( film => 
                     <Card 
-                        key={ index }
-                        src={`${imgBaseURL}${item.poster_path}`} 
-                        alt={`Poster do filme ${item.title}`}
-                    />
+                    key={ film.id }
+                    src={`${imgBaseURL}${film.poster_path}`} 
+                    alt={`Poster do filme ${film.title}`}
+                    onClick={ () => getBlockBusterData(film.id, film.title?film.title:film.name, film.overview, film.backdrop_path, film.media_type) }
+                    /> 
                 )}
             </Slider>       
     </section>
