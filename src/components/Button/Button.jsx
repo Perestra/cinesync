@@ -1,11 +1,19 @@
 import React from 'react'
-import Text from 'src/components/Text/Text'
+import styles from './Button.module.scss'
 
-const Button = ({ type, btnClassName, txtClassName, onClick, title, icon }) => {
+const Button = ({ type, btnClassName, txtClassName, onClick, href, target, title, icon }) => {
   return (
-    <button type={ type } className={ btnClassName } onClick={ onClick }>
+    <button type={ type } className={ `${btnClassName}` } onClick={ onClick }>
       { icon }
-      <Text className={txtClassName} text={ title } />
+      <a 
+        className={`${styles[txtClassName]}`}
+        href={href} 
+        target={target}
+        rel="noopener noreferrer"
+        referrerPolicy="no-referrer-when-downgrade"
+      >
+        { title }
+      </a>
     </button>
   )
 }
