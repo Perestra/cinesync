@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from './Title.module.scss'
 
-const Title = ({ text }) => {
+const Title = ({ text, animation }) => {
   return (
-    <h1 className={ styles.title }>{ text }</h1>
+    <h1 className={ `${styles.title} ${styles[animation]}` }>{ text }</h1>
   )
 }
 
