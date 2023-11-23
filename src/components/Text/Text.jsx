@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from './Text.module.scss'
 
-const Text = ({ className, text }) => {
+const Text = ({ className, animation, text }) => {
   return (
-    <p className={ `${styles[className]}` }>{ text }</p>
+    <p className={ `${styles[className]} ${styles[animation]}` }>{ text }</p>
   )
 }
 
