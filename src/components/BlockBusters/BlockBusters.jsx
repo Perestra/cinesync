@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './BlockBusters.module.scss'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -9,7 +9,7 @@ import tmdb from 'src/api/tmdbApi';
 import Slider from 'react-slick'
 import { useAxios } from 'src/hooks/useAxios';
 
-const BlockBusters = ({ posterTitle, url, getBlockBusterData }) => {
+const BlockBusters = ({ posterTitle, url, posterBaseURL, getFilmData }) => {
 
     const sliderConfig = {
         infinite: false,
@@ -21,19 +21,18 @@ const BlockBusters = ({ posterTitle, url, getBlockBusterData }) => {
         slidesToScroll: 1
     }
 
-    const { data, isLoading, error } = useAxios(tmdb,'get', url)
-    const imgBaseURL = 'https://image.tmdb.org/t/p/w500/'
+    const { results, isLoading, error } = useAxios(tmdb,'get', url)
 
   return (
     <section className={ styles.blockbusters }>
         <Subtitle color='white' text={ posterTitle } />
             <Slider { ...sliderConfig }>
-                { data.map( film => 
+                { results.map( film => 
                     <Card 
                     key={ film.id }
-                    src={`${imgBaseURL}${film.poster_path}`} 
+                    src={`${posterBaseURL}${film.poster_path}`} 
                     alt={`Poster do filme ${film.title}`}
-                    onClick={ () => getBlockBusterData(film.id, film.title?film.title:film.name, film.overview, film.backdrop_path, film.media_type) }
+                    onClick={ () => getFilmData(film.id, film.media_type, film.backdrop_path) }
                     /> 
                 )}
             </Slider>       
