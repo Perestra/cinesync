@@ -2,9 +2,10 @@ import { useEffect, useRef, useState } from "react"
    
 export function useAxios( axiosInstance, method, url ) {
 
-    const [ data, setData ] = useState([])
+    const [ data, setData ] = useState({})
+    const [ results, setResults ] = useState([])
     const [ isLoading, setIsLoading ] = useState(true)
-    const [ error, setError ] = useState('')
+    const [ error, setError ] = useState(false)
     const responseData = useRef(false)
 
     useEffect( () => {
@@ -13,25 +14,26 @@ export function useAxios( axiosInstance, method, url ) {
             try {
                 const res = await axiosInstance
                     [method](url, {
-                    signal: controller.signal,
-                })
-                setData(res.data.results)
+                        signal: controller.signal
+                    })
+                setData(res.data)
+                setResults(res.data.results)
             } catch(err) {
                 setError(err.message)
-                
             } finally {
                 setIsLoading(false)
             }
         }
-        if(responseData.current) fechData()
-
-        return () => {
+        
+        if(responseData) fechData()
+        return ( () => {
             controller.abort()
             responseData.current = true
-        }
-    }, [])
+        } )
+        
+    }, [url])
 
-    return { data, isLoading, error }
+    return { data, results, isLoading, error }
 }
 
     
