@@ -19,7 +19,7 @@ const Routers = () => {
           <Route path='/login' element={ <Login /> } />
           <Route path='/criarconta' element={ <CreateAccount /> } />
           <Route path='/esqueciminhasenha' element={ <ForgotPassword /> } />
-          <Route path='/inicio' element={ <Home /> } />
+          <Route path='/inicio/:idUser' element={ <Home /> } />
         </Routes>
       </AccountProvider>
       <Footer />
