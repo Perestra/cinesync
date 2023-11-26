@@ -39,7 +39,6 @@ const ForgotPassword = () => {
                     />
                     <Button btnClassName={ styles.forgotPassword__btnSubmit } txtClassName='white' type='submit' title='Continuar'/>    
                 </form>
-                { console.log(errors) }
             </section>
             <section className={ styles.forgotPassword__passwordData }>
                 <Text className='white' text='Senha:'/>
