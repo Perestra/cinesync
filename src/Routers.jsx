@@ -2,6 +2,8 @@ import React from 'react'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AccountProvider } from 'src/contexts/AccountContext'
+import { AuthProvider } from 'src/contexts/AuthContext'
+import { RequireAuth } from 'src/contexts/RequireAuth'
 
 import Initial from 'src/pages/Initial/Initial'
 import Login from 'src/pages/Login/Login'
@@ -12,18 +14,21 @@ import Home from 'src/pages/Home/Home'
 
 const Routers = () => {
   return (
-    <BrowserRouter>
-      <AccountProvider> 
-        <Routes>
-          <Route index element={ <Initial /> }/>
-          <Route path='/login' element={ <Login /> } />
-          <Route path='/criarconta' element={ <CreateAccount /> } />
-          <Route path='/esqueciminhasenha' element={ <ForgotPassword /> } />
-          <Route path='/inicio/:idUser' element={ <Home /> } />
-        </Routes>
-      </AccountProvider>
-      <Footer />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <AccountProvider> 
+          <Routes>
+            <Route index element={ <Initial /> }/>
+            <Route path='/login' element={ <Login /> } />
+            <Route path='/criarconta' element={ <CreateAccount /> } />
+            <Route path='/esqueciminhasenha' element={ <ForgotPassword /> } />
+            <Route path='/inicio' element={ <RequireAuth><Home/></RequireAuth> }/>  
+          </Routes>
+        </AccountProvider>
+        <Footer />
+      </BrowserRouter>
+    </AuthProvider>
+    
   )
 }
 
