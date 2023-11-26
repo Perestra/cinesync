@@ -10,11 +10,11 @@ import Text from 'src/components/Text/Text'
 import { useForm } from 'react-hook-form'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { TbAlertCircleFilled } from 'react-icons/tb'
-import { useAccountContext } from 'src/hooks/useAccountContext'
+import { useAuthContext } from 'src/hooks/useAuthContext'
 
 const Login = () => {
 
-    const { submitLoginUser } = useAccountContext()
+    const { submitSignIn } = useAuthContext()
     const navigate = useNavigate()
     const { register, handleSubmit, formState:{ errors }, } = useForm()
 
@@ -24,7 +24,7 @@ const Login = () => {
         <main className={ styles.login__main }>
             <section className={ styles.login__section }>
                 <Subtitle text='Login' color='orange'/>   
-                <form className={ styles.login__form } onSubmit={handleSubmit(submitLoginUser)}>
+                <form className={ styles.login__form } onSubmit={handleSubmit(submitSignIn)}>
                     <InputForm 
                         name='username'
                         label='Usuário'
