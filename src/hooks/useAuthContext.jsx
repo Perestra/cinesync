@@ -32,12 +32,11 @@ export function useAuthContext() {
         } 
     }
 
-    const isLoginSuccess = () => {
+    const isUserAuth = () => {
         const findUserId = accounts.find( account => account.id === authUser?.id )
         if(findUserId) return true 
         return false
     }
 
-
-    return { isLoginSuccess, submitSignIn }
+    return { isUserAuth, submitSignIn }
 }
