@@ -1,18 +1,16 @@
 import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { AccountContext } from "src/contexts/AccountContext"
+import { AuthContext } from "src/contexts/AuthContext"
 import { v4 as uuid } from 'uuid'
 
 export function useAccountContext() {
 
-    const context = useContext(AccountContext)
     const { accounts, setAccounts } = useContext(AccountContext)
-
+    const submitSignIn = useContext(AuthContext)
     const [ userPassword, setUserPassword ] = useState('')
 
     const navigate = useNavigate()
-
-    if(context === undefined) throw new Error('Não está dentro do contexto')
 
     const isValidUsername = value => {
         const findedAccount = accounts.some(account => value === account.username)
@@ -39,22 +37,11 @@ export function useAccountContext() {
             fullname: data.fullname,
             username: data.username,
             email: data.email,
-            password: data.password,
-            logged: false
+            password: data.password
         }
         createAccount(infoAccount)
         navigate('/login')
     } 
 
-    const submitLoginUser =( data ) => {
-        const findedAccount = accounts.find(account => data.username === account.username && data.password === account.password)
-        if(findedAccount) {
-            // findedAccount.logged = true
-            navigate(`/inicio/${findedAccount.id}`)
-        } 
-        return findedAccount
-    } 
-
-
-    return {context, userPassword, isValidUsername, isValidEmail, showPassword, createAccount, submitGenerateAccount, submitLoginUser}
+    return {accounts, userPassword, isValidUsername, isValidEmail, showPassword, createAccount, submitGenerateAccount, submitSignIn}
 }
