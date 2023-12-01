@@ -9,6 +9,7 @@ import tmdb from 'src/api/tmdbApi';
 import Slider from 'react-slick'
 import { useAxios } from 'src/hooks/useAxios';
 
+
 const BlockBusters = ({ posterTitle, url, posterBaseURL, getFilmData }) => {
 
     const sliderConfig = {
