@@ -3,29 +3,20 @@ import styles from './NavList.module.scss'
 
 import LinkList from 'src/components/LinkList/LinkList'
 
-import { AiFillHome } from 'react-icons/ai'
-import { HiPlus } from 'react-icons/hi'
-import { RiMovie2Fill } from 'react-icons/ri'
-import { PiTelevisionFill } from 'react-icons/pi'
-
 const NavList = () => {
 
   const listHeader = [
     {title:"Início",
-     link:"/inicio",
-     Icon:AiFillHome 
-    }, 
-    {title:"Minha lista",
-     link:"/minhalista",
-     Icon:HiPlus 
+     link:"/inicio"
     }, 
     {title:"Filmes",
-     link:"/filmes",
-     Icon:RiMovie2Fill 
+     link:"/filmes"
     }, 
     {title:"Séries",
-     link:"/series",
-     Icon:PiTelevisionFill 
+     link:"/series"
+    },
+    {title:"Minha lista",
+     link:"/minhalista"
     }
   ]
   
@@ -36,7 +27,6 @@ const NavList = () => {
               <LinkList 
                 key={ index } 
                 to={ item.link } 
-                Icon={ item.Icon } 
                 title={ item.title } 
               />
             )}
