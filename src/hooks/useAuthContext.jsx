@@ -38,5 +38,5 @@ export function useAuthContext() {
         return false
     }
 
-    return { isUserAuth, submitSignIn }
+    return { authUser, isUserAuth, submitSignIn }
 }
