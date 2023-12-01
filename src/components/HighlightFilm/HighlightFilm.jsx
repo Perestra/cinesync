@@ -9,6 +9,7 @@ import imdb from 'src/assets/images/imdb.png'
 
 import { IoPlayCircleOutline } from "react-icons/io5";
 import { IoMdInformationCircleOutline } from "react-icons/io";
+import { movieDate, tvDate, runTime, rating } from 'src/helper/modifyDatas';
 
 const HighlightFilm = ({ data, filmData }) => {
     return (
@@ -16,8 +17,8 @@ const HighlightFilm = ({ data, filmData }) => {
         <div className={ styles.HighlightFilm__dataContainer }>
             <div className={ styles.HighlightFilm__data }>
                 <div className={ styles.HighlightFilm__date }>
-                    <Text className='white' text={ data.release_date? data.release_date: `${data.first_air_date} - ${data.last_air_date}` } />
-                    <Text className='white' text={ data.runtime } />
+                    <Text className='white' text={ data.release_date? movieDate(data.release_date): tvDate(data.first_air_date, data.last_air_date) } />
+                    <Text className='white' text={ runTime(data.runtime) } />
                 </div>
                 <Title 
                     key={data.title? data.title: data.name}
@@ -29,7 +30,7 @@ const HighlightFilm = ({ data, filmData }) => {
                 </div>
                 <div className={ styles.HighlightFilm__rating }>
                     <img src={imdb} alt="Logo do IMDB" />
-                    <Text className='white' text={data.vote_average} />
+                    <Text className='white' text={rating(data.vote_average)} />
                 </div>
             </div>
             <div className={ styles.HighlightFilm__buttons }>
