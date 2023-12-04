@@ -1,0 +1,25 @@
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+
+    &__label {
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: var(--primaryText);
+    }
+
+    &__select {
+        width: 170px;
+        height: 35px;
+        padding: 0 5px;
+
+        font-size: 0.875rem;
+        background: var(--primaryText);
+        border-radius: 5px; 
+        border: none; 
+        outline: none;
+        cursor: pointer;
+    }
+}
