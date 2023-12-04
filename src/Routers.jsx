@@ -11,6 +11,8 @@ import CreateAccount from 'src/pages/CreateAccount/CreateAccount'
 import ForgotPassword from 'src/pages/ForgotPassword/ForgotPassword'
 import Footer from 'src/components/Footer/Footer'
 import Home from 'src/pages/Home/Home'
+import Movies from 'src/pages/Movies/Movies'
+import TvShow from 'src/pages/TvShow/TvShow'
 
 const Routers = () => {
   return (
@@ -22,7 +24,9 @@ const Routers = () => {
             <Route path='/login' element={ <Login /> } />
             <Route path='/criarconta' element={ <CreateAccount /> } />
             <Route path='/esqueciminhasenha' element={ <ForgotPassword /> } />
-            <Route path='/inicio' element={ <RequireAuth><Home/></RequireAuth> }/>  
+            <Route path='/inicio' element={ <RequireAuth><Home /></RequireAuth> }/>  
+            <Route path='/filmes' element={ <RequireAuth><Movies /></RequireAuth> }/>  
+            <Route path='/series' element={ <RequireAuth><TvShow /></RequireAuth> }/>  
           </Routes>
         </AccountProvider>
         <Footer />
