@@ -27,16 +27,16 @@ const BlockBusters = ({ posterTitle, url, posterBaseURL, getFilmData }) => {
   return (
     <section className={ styles.blockbusters }>
         <Subtitle color='white' text={ posterTitle } />
-            <Slider { ...sliderConfig }>
-                { results.map( film => 
-                    <Card 
-                    key={ film.id }
-                    src={`${posterBaseURL}${film.poster_path}`} 
-                    alt={`Poster do filme ${film.title}`}
-                    onClick={ () => getFilmData(film.id, film.media_type, film.backdrop_path) }
-                    /> 
-                )}
-            </Slider>       
+        <Slider { ...sliderConfig }>
+            { results.map( film => 
+                <Card 
+                key={ film.id }
+                src={`${posterBaseURL}${film.poster_path}`} 
+                alt={`Poster do filme ${film.title}`}
+                onClick={ () => getFilmData(film.id, film.media_type, film.backdrop_path) }
+                /> 
+            )}
+        </Slider>       
     </section>
   )
 }
