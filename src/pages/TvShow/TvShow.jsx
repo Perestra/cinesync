@@ -31,9 +31,6 @@ const TvShow = ({  }) => {
         setIdGenre(id)
     }
 
-    console.log(filterByGenre)
-    
-
     return (
     <div className={ styles.movies }>
         <Header content='visible' username={ authUser.username } />
