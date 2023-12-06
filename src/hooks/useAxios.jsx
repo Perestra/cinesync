@@ -31,6 +31,7 @@ export function useAxios( axiosInstance, method, url ) {
             responseData.current = true
         } )
         
+        
     }, [url])
 
     return { data, results, isLoading, error }
