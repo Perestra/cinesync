@@ -16,7 +16,7 @@
     &__data {
         width: 100%;
         max-width: 55%;
-        height: auto;
+        min-height: 165px;
 
         display: flex;
         flex-direction: column;
