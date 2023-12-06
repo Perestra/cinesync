@@ -7,8 +7,8 @@ import Card from 'src/components/Card/Card'
 import Subtitle from 'src/components/Subtitle/Subtitle'
 import tmdb from 'src/api/tmdbApi';
 import Slider from 'react-slick'
-import { useAxios } from 'src/hooks/useAxios';
 
+import { useAxios } from 'src/hooks/useAxios';
 
 const BlockBusters = ({ posterTitle, url, posterBaseURL, getFilmData }) => {
 
@@ -33,10 +33,10 @@ const BlockBusters = ({ posterTitle, url, posterBaseURL, getFilmData }) => {
                 key={ film.id }
                 src={`${posterBaseURL}${film.poster_path}`} 
                 alt={`Poster do filme ${film.title}`}
-                onClick={ () => getFilmData(film.id, film.media_type, film.backdrop_path) }
+                onClick={ () => getFilmData(film.id, film.title? film.title: film.name,  film.media_type, film.backdrop_path) }
                 /> 
             )}
-        </Slider>       
+        </Slider>    
     </section>
   )
 }
