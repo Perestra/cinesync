@@ -6,38 +6,36 @@ import "slick-carousel/slick/slick-theme.css";
 import Header from 'src/components/Header/Header'
 import BlockBusters from 'src/components/BlockBusters/BlockBusters';
 import HighlightFilm from 'src/components/HighlightFilm/HighlightFilm';
-import tmdb from 'src/api/tmdbApi';
 
-import { useAxios } from 'src/hooks/useAxios';
 import { useAuthContext } from 'src/hooks/useAuthContext';
-
 
 const Home = () => {
 
-  const posterBaseURL = 'https://image.tmdb.org/t/p/w500'
-  const backDropBaseURL = 'https://image.tmdb.org/t/p/original'
+  const { authUser } = useAuthContext()
 
   const [ filmData, setFilmData ] = useState({
     id:872585, 
+    title: 'Oppenheimer',
     media:'movie', 
     backdrop:'/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg'
   })
 
-  const getFilmData = (id, media, backdrop) => {
-    setFilmData({id, media, backdrop})
+  const getFilmData = (id, title, media, backdrop ) => {
+    setFilmData({id, title, media, backdrop })
+    window.scrollTo(0,0)
   }
 
-  const { data, isLoading, error } = useAxios(tmdb, 'get', `/${filmData.media}/${filmData.id}`)
-  const { authUser } = useAuthContext()
+  const posterBaseURL = 'https://image.tmdb.org/t/p/w500'
+  const backDropBaseURL = 'https://image.tmdb.org/t/p/original'
 
   return (
     <div className={ styles.home }>
       <div className={ styles.home__backdrop }>
-        <img src={`${backDropBaseURL}${filmData.backdrop}`} alt={`Plano de fundo do filme ${filmData.title}`} />
+        <img src={`${backDropBaseURL}${filmData.backdrop}`} alt={`Plano de fundo de ${filmData.title}`} />
       </div>
       <div className={ styles.home__filmData }>
         <Header content='visible' username={ authUser.username } />
-        <HighlightFilm data={data} filmData={filmData} />
+        <HighlightFilm filmData={filmData} />
       </div>
       <main className={ styles.home__main }>
         <BlockBusters posterBaseURL={posterBaseURL} posterTitle='Populares da semana' url='/trending/all/week' getFilmData={ getFilmData } />
