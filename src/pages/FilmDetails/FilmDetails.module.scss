@@ -1,0 +1,82 @@
+.filmDetails {
+    width: 100%;
+    height: auto;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 80px;
+
+    &__data {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        z-index: 2;
+    }
+
+    &__backdrop {
+        position: absolute;
+        top: 0;
+
+        width: 100%;
+        height: 635px;
+        background: linear-gradient(0deg, rgba(12, 12, 12, 0.88) 0%, rgba(12, 12, 12, 0.66) 90.6%);
+
+        & > img {
+            position:relative;
+            
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+    }
+
+    &__highlight {
+        width: 100%;
+        max-width: 60%;
+        height: 490px;
+        margin: auto;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 15px;
+
+        & > h2 {
+            position: relative;
+        }
+
+        & > h2::before, & > h2::after {
+            position: absolute;
+            top: 18px;
+
+            content: '';
+            width: 28px;
+            height: 2px;
+            background: var(--primaryOrange);
+        }
+        & > h2::before {
+            right: 80px;
+        }
+        & > h2::after {
+            left: 80px;
+        }
+    }
+
+    &__genres {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & > p {
+            padding: 0 10px;
+        }
+        & > p:not(:last-child) {
+            border-right: 1px solid var(--primaryText);
+        }
+    }
+}
