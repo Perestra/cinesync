@@ -11,11 +11,13 @@ import SelectForm from 'src/components/SelectForm/SelectForm';
 import { useAxios } from 'src/hooks/useAxios'
 import { useAuthContext } from 'src/hooks/useAuthContext';
 import { movieDate } from 'src/helper/modifyDatas';
+import { useNavigate } from 'react-router-dom';
 
-const Movies = ({  }) => {
+const Movies = () => {
 
     const [ idGenre, setIdGenre ] = useState('')
     const { authUser } = useAuthContext()
+    const navigate = useNavigate()
 
     const getApiURL = url => {
         const { data, isLoading, error } = useAxios(tmdb, 'get', url)
@@ -29,6 +31,10 @@ const Movies = ({  }) => {
     const getIdGenre = e => {
         const id = e.target.value
         setIdGenre(id)
+    }
+
+    const getMovieId = id => {
+        navigate(`/filmes/${id}`)
     }
 
     return (
@@ -64,7 +70,11 @@ const Movies = ({  }) => {
                         <ul className={ styles.movies__ul }>
                             { filterByGenre?.map( film => 
                                 <li key={film.id} className={ styles.movies__li} >
-                                    <Card src={`${posterBaseURL}${film.poster_path}`} alt={`Poster do filme ${film.title}`} />
+                                    <Card 
+                                        src={`${posterBaseURL}${film.poster_path}`} 
+                                        alt={`Poster do filme ${film.title}`} 
+                                        onClick={ () => getMovieId(film?.id) }
+                                    />
                                     <div className={ styles.movies__data}>
                                         <Text text={film.title} className='white' />
                                         <Text text={movieDate(film.release_date)} className='gray' />
