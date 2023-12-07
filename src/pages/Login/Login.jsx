@@ -34,8 +34,10 @@ const Login = () => {
                         styleClassName={errors?.username && "form__inputError"}
                         register={register}
                         required
+                        // validate={ () => submitSignIn }
                         icon={errors?.username && <TbAlertCircleFilled className={ styles.login__iconError } />}
                         errorText= { errors?.username?.type === 'required' && <Text className='error' text='Este campo é obrigatório!' /> }
+                        // errorText= { errors?.username?.type === 'required'? <Text className='error' text='Este campo é obrigatório!' />: errors?.username?.type === 'validate'? <Text className='error' text='Usuário ou senha inválido!' />: "" }
                     />
                     <InputForm 
                         name='password'
@@ -47,8 +49,10 @@ const Login = () => {
                         styleClassName={errors?.password && "form__inputError"}
                         register={register}
                         required
+                        // validate={ () => submitSignIn }
                         icon={errors?.password && <TbAlertCircleFilled className={ styles.login__iconError } />}
                         errorText= { errors?.password?.type === 'required' && <Text className='error' text='Este campo é obrigatório!' /> }
+                        // errorText= { errors?.password?.type === 'required'? <Text className='error' text='Este campo é obrigatório!' />: errors?.password?.type === 'validate'? <Text className='error' text='Usuário ou senha inválido!' />: "" }
                     />
                     <Button btnClassName={ styles.login__btnSubmit } txtClassName='white' type='submit' title='Entrar'/>
                 </form>     
