@@ -14,6 +14,7 @@ import Home from 'src/pages/Home/Home'
 import Movies from 'src/pages/Movies/Movies'
 import TvShow from 'src/pages/TvShow/TvShow'
 import FilmDetails from 'src/pages/FilmDetails/FilmDetails'
+import TvShowDetails from 'src/pages/TvShowDetails/TvShowDetails'
 
 const Routers = () => {
   return (
@@ -32,7 +33,7 @@ const Routers = () => {
             </Route>  
             <Route path='series'>
               <Route index element={ <RequireAuth><TvShow /></RequireAuth> }/>
-              {/* <Route path=':id' element={ <RequireAuth><FilmDetails /></RequireAuth> }/> */}
+              <Route path=':id' element={ <RequireAuth><TvShowDetails /></RequireAuth> }/>
             </Route>  
           </Routes>
         </AccountProvider>
