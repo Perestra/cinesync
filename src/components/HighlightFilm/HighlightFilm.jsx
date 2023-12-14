@@ -19,6 +19,13 @@ const HighlightFilm = ({ filmData }) => {
     const { results } = useAxios( tmdb, 'get', `/${filmData.media}/${filmData.id}/videos`)
     const trailer = results.filter( video => video.type.toLowerCase() === 'trailer')
 
+    const translateMedia = media => {
+        if(media === 'movie') {
+            return 'filmes'
+        } 
+        return 'series'
+    }
+
     const trailerBaseURL = 'http://www.youtube.com/embed/'
 
     return (
@@ -40,25 +47,27 @@ const HighlightFilm = ({ filmData }) => {
                     </div>     
                 </div>
                 <Text text={ data?.overview } className='gray' />
-                { data.vote_average && <div className={ styles.HighlightFilm__rating }>
-                    <img src={imdb} alt="Logo do IMDB" />
-                    <Text className='white' text={rating(data.vote_average)} />
-                </div>}
+                { data.vote_average && 
+                    <div className={ styles.HighlightFilm__rating }>
+                        <img src={imdb} alt="Logo do IMDB" />
+                        <Text className='white' text={rating(data.vote_average)} />
+                    </div> }
             </div> }
             <div className={ styles.HighlightFilm__buttons }>
-                <Button 
+                { data?.id && <Button 
                     btnClassName={ styles.HighlightFilm__btnKnowMore } 
                     txtClassName='black' 
                     title='Saiba mais' 
                     type='button' 
+                    href={ `/${translateMedia(filmData.media)}/${filmData.id}` }
                     icon={<IoMdInformationCircleOutline className={ styles.HighlightFilm__iconKnowMore } />} 
-                />
+                /> }
                 { trailer[0]?.key && <Button 
                     btnClassName={ styles.HighlightFilm__btnPlay }
                     txtClassName='white' 
                     title='Assistir ao trailer' 
                     type='button' 
-                    href={ `${trailerBaseURL}${trailer[0]?.key}` }
+                    href={ `${trailerBaseURL}${trailer[0].key}?autoplay=1` }
                     target='_blank'
                     icon={<IoPlayCircleOutline className={ styles.HighlightFilm__iconPlay } />} 
                 /> }

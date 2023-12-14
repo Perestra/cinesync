@@ -43,10 +43,16 @@
         position: relative;
         display: flex;
 
-        & > p:not(:last-child) {
-            padding-right: 15px;
-            margin-right: 15px;
-            border-right: 1px solid var(--primaryText);
+        & > p {
+            padding: 0 10px;
+            position: relative;
+        }
+        & > p:not(:last-child)::after {
+            position: absolute;
+            top: 0;
+            right: -2.5px;
+
+            content:'•'
         }
     }
 
@@ -84,7 +90,7 @@
     
     &__btnKnowMore {
         border: 1px solid var(--secondaryText);
-        border-radius: 10px;
+        border-radius: 7px;
         background: var(--secondaryLinearButton);
         padding: 7px 15px;
         cursor: pointer;
