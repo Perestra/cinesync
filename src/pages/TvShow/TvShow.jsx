@@ -4,31 +4,32 @@ import styles from './TvShow.module.scss'
 import Header from 'src/components/Header/Header'
 import Title from 'src/components/Title/Title'
 import Text from 'src/components/Text/Text';
-import tmdb from 'src/api/tmdbApi'
 import Card from 'src/components/Card/Card';
 import SelectForm from 'src/components/SelectForm/SelectForm';
 
-import { useAxios } from 'src/hooks/useAxios'
 import { useAuthContext } from 'src/hooks/useAuthContext';
 import { movieDate } from 'src/helper/modifyDatas';
+import { getAPIData } from 'src/helper/getAPIData';
+import { useNavigate } from 'react-router-dom';
 
 const TvShow = ({  }) => {
 
     const [ idGenre, setIdGenre ] = useState('')
     const { authUser } = useAuthContext()
-
-    const getApiURL = url => {
-        const { data, isLoading, error } = useAxios(tmdb, 'get', url)
-        return data
-    }
+    const navigate = useNavigate()
 
     const posterBaseURL = 'https://image.tmdb.org/t/p/w500'
-    const genres = getApiURL('/genre/tv/list').genres
-    const filterByGenre = getApiURL(`/discover/tv?page=1&sort_by=popularity.desc&with_genres=${idGenre}`).results
+    const genres = getAPIData('/genre/tv/list').genres
+    const filterByGenre = getAPIData(`/discover/tv?page=1&sort_by=popularity.desc&with_genres=${idGenre}`).results
     
     const getIdGenre = e => {
         const id = e.target.value
         setIdGenre(id)
+    }
+
+    const getMovieId = id => {
+        navigate(`/series/${id}`)
+        window.scrollTo(0,0)
     }
 
     return (
@@ -62,12 +63,16 @@ const TvShow = ({  }) => {
                 <section className={ styles.movies__cardsContainer }>
                     <div className={ styles.movies__cards }>
                         <ul className={ styles.movies__ul }>
-                            { filterByGenre?.map( film => 
-                                <li key={film.id} className={ styles.movies__li} >
-                                    <Card src={`${posterBaseURL}${film.poster_path}`} alt={`Poster do filme ${film.name}`} />
+                            { filterByGenre?.map( tv => 
+                                <li key={tv.id} className={ styles.movies__li} >
+                                    <Card 
+                                        src={`${posterBaseURL}${tv.poster_path}`} 
+                                        alt={`Poster da série ${tv.name}`} 
+                                        onClick={ () => getMovieId(tv.id) }
+                                    />
                                     <div className={ styles.movies__data}>
-                                        <Text text={film.name} className='white' />
-                                        <Text text={movieDate(film.first_air_date)} className='gray' />
+                                        <Text text={tv.name} className='white' />
+                                        <Text text={movieDate(tv.first_air_date)} className='gray' />
                                     </div>
                                 </li> 
                             ) }

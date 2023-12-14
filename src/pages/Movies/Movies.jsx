@@ -4,13 +4,12 @@ import styles from './Movies.module.scss'
 import Header from 'src/components/Header/Header'
 import Title from 'src/components/Title/Title'
 import Text from 'src/components/Text/Text';
-import tmdb from 'src/api/tmdbApi'
 import Card from 'src/components/Card/Card';
 import SelectForm from 'src/components/SelectForm/SelectForm';
 
-import { useAxios } from 'src/hooks/useAxios'
 import { useAuthContext } from 'src/hooks/useAuthContext';
 import { movieDate } from 'src/helper/modifyDatas';
+import { getAPIData } from 'src/helper/getAPIData';
 import { useNavigate } from 'react-router-dom';
 
 const Movies = () => {
@@ -19,14 +18,9 @@ const Movies = () => {
     const { authUser } = useAuthContext()
     const navigate = useNavigate()
 
-    const getApiURL = url => {
-        const { data, isLoading, error } = useAxios(tmdb, 'get', url)
-        return data
-    }
-
     const posterBaseURL = 'https://image.tmdb.org/t/p/w500'
-    const genres = getApiURL('/genre/movie/list').genres
-    const filterByGenre = getApiURL(`/discover/movie?page=1&sort_by=popularity.desc&with_genres=${idGenre}`).results
+    const genres = getAPIData('/genre/movie/list').genres
+    const filterByGenre = getAPIData(`/discover/movie?page=1&sort_by=popularity.desc&with_genres=${idGenre}`).results
     
     const getIdGenre = e => {
         const id = e.target.value
@@ -35,6 +29,7 @@ const Movies = () => {
 
     const getMovieId = id => {
         navigate(`/filmes/${id}`)
+        window.scrollTo(0,0)
     }
 
     return (
