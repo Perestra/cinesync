@@ -1,12 +1,8 @@
-.filmDetails {
+.tv {
     width: 100%;
-    min-height: 100vh;
+    height: auto;
 
-    display: flex;
-    flex-direction: column;
-    row-gap: 80px;
-
-    &__data {
+    &__container {
         width: 100%;
         height: auto;
 
@@ -24,7 +20,7 @@
         flex-direction: column;
         row-gap: 80px;
 
-        background-position: 85% 15%;
+        background-position: 95% 5%;
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -56,18 +52,22 @@
 
             object-fit: cover;
             border-radius: 10px;
-            cursor: pointer;
         }
     }
 
-    &__filmDetails {
+    &__createdBy {
+        & > p:not(:last-child) {
+            font-size: 1rem;
+        }
+    }
+
+    &__highlightContent {
         width: 100%;
         height: 360px;
 
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
         row-gap: 30px;
     }
 
@@ -75,22 +75,16 @@
         width: 100%;
         max-width: 60%;
         height: auto;
-
-        display: flex;
-        flex-direction: column;
     }
 
-    &__filmData {
-        width: 100%;
-        height: auto;
-
+    &__info {
         display: flex;
 
+        & > p {
+            padding-right: 10px;
+        }
         & > p:not(:first-child) {
             padding: 0 10px;
-        }
-        & > p:first-child {
-            padding-right: 10px;
         }
     }
 
@@ -98,11 +92,13 @@
         display: flex;
 
         border-right: 1px solid var(--primaryText);
-        border-left: 1px solid var(--primaryText);
 
         & > p {
-            padding: 0 10px;
+            padding-right: 10px;
             position: relative;
+        }
+        & > p:not(:first-child) {
+            padding: 0 10px;
         }
         & > p:not(:last-child)::after {
             position: absolute;
@@ -115,6 +111,7 @@
 
     &__rating {
         display: flex;
+        align-items: center;
         column-gap: 12px;
 
         & > p {
@@ -122,54 +119,45 @@
         }
     }
 
-    &__cast {
+    &__statistics {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        column-gap: 30px;
+    }
+
+    &__number {
+        text-align: center;
 
         & > p:not(:last-child) {
             font-size: 1rem;
         }
     }
 
-    &__btnPlay {
-        border: 1px solid var(--primaryText);
-        border-radius: 7px;
-        background: var(--primaryLinearButton);
-        padding: 7px 15px;
-        margin-top: 20px;
-        cursor: pointer;
-    
-        display: flex;
-        column-gap: 5px;
-    }
-
-    &__iconPlay {
-        width: 20px;
-        height: 20px;
-        color: var(--primaryText);
-    }
-
-    &__filmInfos {
+    &__details {
         width: 100%;
         max-width: 90%;
         height: auto;
         margin: auto;
+    }
+
+    &__specifications {
+        width: 100%;
+        height: auto;
 
         display: flex;
         gap: 50px;
     }
 
-    &__filmCast {
+    &__specContent {
         width: 100%;
         max-width: 65%;
+        height: auto;
 
         display: flex;
         flex-direction: column;
         row-gap: 50px;
     }
 
-    &__overview, &__casters, &__videos, &__images {
+    &__overview, &__casters, &__images {
         display: flex;
         flex-direction: column;
         row-gap: 20px;
@@ -189,56 +177,13 @@
         gap: 40px;
     }
 
-    &__aside {
+    &__images {
         width: 100%;
         max-width: 35%;
         height: auto;
-
-        display: flex;
-        flex-direction: column;
-        gap: 50px;
-    }
-
-    &__video {
-       width: 100%;
-       height: auto;
-
-       position: relative;
-       display: flex;
-
-       & > video {
-        width: 320px;
-        height: auto;
-        }
-    }
-
-    &__btnTrailer {
-        position: absolute;
-        left: 120px;
-        top: 80px;
-        z-index: 1;
-
-        display: flex;
-    }
-
-    &__iconTrailer {
-        width: 80px;
-        height: 80px;
-        color: var(--primaryText);
-        transition: color 0.1s ease-in-out;
-
-        &:hover {
-            color: var(--primaryOrange);
-        }
     }
 
     &__image {
-        width: 100%;
-       height: auto;
-
-       position: relative;
-       display: flex;
-
        & > img {
         width: 320px;
         height: auto;
