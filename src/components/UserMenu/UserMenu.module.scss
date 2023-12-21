@@ -1,0 +1,135 @@
+.menu {
+    position: absolute;
+    top: 50px;
+    right: 95px;
+    width: 350px;
+
+    visibility: hidden;
+    background-color: var(--primaryText);
+    border-radius: 12px;
+    padding: 10px;
+
+    &__container {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+    }
+
+    &__user {
+        display: flex;
+        column-gap: 10px;
+        align-items: center;
+    }
+
+    &__userPhoto {
+        width: 50px;
+        height: 50px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: var(--primaryOrange);
+        border-radius: 50%;
+
+        font-size: 1.75rem;
+        font-weight: 400;
+        color: var(--primaryText);
+    }
+
+    &__userInfo {
+        & > h2 {
+            font-size: 1.125rem;
+        }
+        & > p {
+            font-size: 0.875rem;
+            color: var(--tertiaryText);
+        }
+    }
+
+    &__listContainer {
+        border-top: 1px solid var(--tertiaryText);
+    }
+
+    &__listMenu {
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+        margin-top: 5px;
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+
+        border-radius: 7px;
+        padding: 10px;
+        list-style: none;
+        cursor: pointer;
+
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: var(--secondaryText);
+
+        transition: all ease-in-out 0.1s;
+
+        &:hover {
+            background-color: var(--primaryOrange);
+            color: var(--primaryText);
+        }
+    }
+}
+
+.openMenu {
+    visibility: visible;
+    -webkit-animation: openMenu 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both ;
+    animation: openMenu 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both ;
+}
+.displayContent {
+    -webkit-animation: displayContent  1.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both ;
+    animation: displayContent 1.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both ;
+}
+
+//  animation openMenu
+@-webkit-keyframes openMenu {
+    0% {
+        height: 0px;
+        opacity: 0;
+    }
+    100% {
+        height: 172px;
+        opacity: 1;
+    }
+}
+  @keyframes openMenu {
+    0% {
+        height: 0px;
+        opacity: 0;
+    }
+    100% {
+        height: 172px;
+        opacity: 1;
+    }
+}
+
+//  animation displayContent
+@-webkit-keyframes displayContent {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+  @keyframes displayContent {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
