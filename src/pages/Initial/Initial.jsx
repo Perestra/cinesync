@@ -7,17 +7,36 @@ import Subtitle from 'src/components/Subtitle/Subtitle'
 import Text from 'src/components/Text/Text'
 
 import yourWay from 'src/assets/images/yourWay.png'
-import { IoIosLaptop } from 'react-icons/io'
-import { SlScreenDesktop } from 'react-icons/sl'
-import { HiOutlineDevicePhoneMobile } from 'react-icons/hi2'
+import laptop  from 'src/assets/images/laptop.png'
+import television  from 'src/assets/images/television.png'
+import control  from 'src/assets/images/control.png'
+import cellphone  from 'src/assets/images/cellphone.png'
+
 import { useNavigate } from 'react-router-dom'
 
 const Initial = () => {
 
   const devices = [
-    {pc:["MacOS", "PC Windows"]},
-    {tv:["Fire TV", "Android TV", "Apple TV", "Chromecast"]},
-    {cel:["Celulares e Tablets Android","iPhone e iPad"]}
+    {
+      name: 'televisão',
+      devices:["Fire TV", "Android TV", "Apple TV", "Chromecast"],
+      img: television
+    },
+    {
+      name: 'laptop',
+      devices:["MacOS", "PC Windows"],
+      img: laptop
+    },
+    {
+      name: 'controle de videogame',
+      devices:["PlayStation","Xbox"],
+      img: control
+    },
+    {
+      name: 'celular',
+      devices:["Celulares e Tablets Android","iPhone e iPad"],
+      img: cellphone
+    }
   ]
 
   const navigate = useNavigate()
@@ -46,24 +65,14 @@ const Initial = () => {
         <section className={ styles.initial__availability }>
           <Subtitle text="Disponível nos seus dispositivos favoritos" color='white'/>
           <div className={ styles.initial__devices}>
-            <div className={ styles.initial__device }>
-              <IoIosLaptop className={ styles.initial__icons } />
-              <div className={ styles.initial__gadgets }>
-                {devices[0].pc.map( (device, index) => <Text className='gray' key={ index } text={ device }/> )}
+            { devices.map( (item, index) => 
+              <div key={index} className={ styles.initial__device }>
+                <img src={ item.img } alt={ `Imagem de ${item.name}` } className={ styles.initial__icons } />
+                <div className={ styles.initial__gadgets }>
+                  {item.devices.map( (device, index) => <Text className='gray' key={ index } text={ device }/> )}
+                </div>
               </div>
-            </div>
-            <div className={ styles.initial__device }>
-              <SlScreenDesktop className={ styles.initial__icons } />
-              <div className={ styles.initial__gadgets }>
-                {devices[1].tv.map( (device, index) => <Text className='gray' key={ index } text={ device }/> )}
-              </div>
-            </div>
-            <div className={ styles.initial__device }>
-              <HiOutlineDevicePhoneMobile className={ styles.initial__icons } />
-              <div className={ styles.initial__gadgets }>
-                {devices[2].cel.map( (device, index) => <Text className='gray' key={ index } text={ device }/> )}
-              </div>
-            </div>
+            ) }
           </div>
         </section>
       </main>
