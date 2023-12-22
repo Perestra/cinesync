@@ -44,7 +44,7 @@ const UserMenu = ({ menu, container }) => {
                 <span className={ styles.menu__userPhoto }>{ userLogo(authUser?.fullname) }</span>
                 <div className={ styles.menu__userInfo }>
                     <Subtitle text={ authUser?.fullname } />
-                    <Text text={ authUser?.email } />
+                    <Text text={ authUser?.email } className='gray' />
                 </div>
             </div>
             <div className={ styles.menu__listContainer }>
