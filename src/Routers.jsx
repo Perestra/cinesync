@@ -9,12 +9,14 @@ import Initial from 'src/pages/Initial/Initial'
 import Login from 'src/pages/Login/Login'
 import CreateAccount from 'src/pages/CreateAccount/CreateAccount'
 import ForgotPassword from 'src/pages/ForgotPassword/ForgotPassword'
-import Footer from 'src/components/Footer/Footer'
 import Home from 'src/pages/Home/Home'
 import Movies from 'src/pages/Movies/Movies'
 import TvShow from 'src/pages/TvShow/TvShow'
 import FilmDetails from 'src/pages/FilmDetails/FilmDetails'
 import TvShowDetails from 'src/pages/TvShowDetails/TvShowDetails'
+import User from 'src/pages/User/User'
+
+import Footer from 'src/components/Footer/Footer'
 
 const Routers = () => {
   return (
@@ -35,6 +37,7 @@ const Routers = () => {
               <Route index element={ <RequireAuth><TvShow /></RequireAuth> }/>
               <Route path=':id' element={ <RequireAuth><TvShowDetails /></RequireAuth> }/>
             </Route>  
+            <Route path='usuario' element={ <RequireAuth><User /></RequireAuth> }/>  
           </Routes>
         </AccountProvider>
         <Footer />
