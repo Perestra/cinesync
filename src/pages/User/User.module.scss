@@ -3,7 +3,7 @@
     flex-direction: column;
     row-gap: 80px;
 
-    &__main {
+    &__main { 
         width: 100%;
         max-width: 90%;
         height: auto;
@@ -19,7 +19,12 @@
         }
     }
 
-    &__section {
+    &__section { 
+        width: 100%;
+        max-width: 865px;
+        height: auto;
+        margin: auto;
+
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -54,9 +59,8 @@
         }
     }
 
-    &__form {
+    &__form { 
         width: 100%;
-        max-width: 50%;
         height: auto;
 
         display: grid;
@@ -64,7 +68,7 @@
         gap: 80px;
     }
 
-    &__label {
+    &__label { 
         font-size: 1.25rem;
         font-weight: 300;
         color: var(--primaryOrange);
@@ -95,7 +99,7 @@
     &__icons {
         display: flex;
         column-gap: 15px;
-        margin: 0 7px;
+        margin: 0 5px;
     }
 
     &__icon {

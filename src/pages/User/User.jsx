@@ -5,6 +5,7 @@ import Header from 'src/components/Header/Header'
 import Title from 'src/components/Title/Title'
 import Subtitle from 'src/components/Subtitle/Subtitle'
 import Text from 'src/components/Text/Text'
+import ChangePassword from 'src/components/ChangePassword/ChangePassword'
 
 import { useAuthContext } from 'src/hooks/useAuthContext'
 import { MdEdit } from "react-icons/md";
@@ -14,6 +15,7 @@ const User = () => {
 
     const { authUser } = useAuthContext()
     const [ visibility, setVisibility ] = useState(false)
+    const [ content, setContent ] = useState('configurações')
 
     const userLogo = name => {
         const firstletter = name?.split(' ')[0].split('')[0]
@@ -52,7 +54,8 @@ const User = () => {
         <Header content='visible' username={ authUser.username } />
         <main className={ styles.user__main }>
             <Title text='Configurações da conta' />
-            <section className={ styles.user__section }>
+            { content === 'alterar senha' && <ChangePassword setContent={setContent} /> }
+            { content === 'configurações' && <section className={ styles.user__section }>
                 <div className={ styles.user__info }>
                     <span className={ styles.user__photo }>{ userLogo(authUser.fullname) }</span>
                     <div className={ styles.user__data }>
@@ -76,16 +79,17 @@ const User = () => {
                                 { item.type === 'password' && 
                                     <div className={ styles.user__icons }>
                                         {visibility? 
-                                            <IoIosEyeOff onClick={() => setVisibility(!visibility)} className={ styles.user__icon }/>: 
-                                            <IoMdEye onClick={() => setVisibility(!visibility)} className={ styles.user__icon }/>
+                                            <IoMdEye onClick={() => setVisibility(!visibility)} className={ styles.user__icon }/>: 
+                                            <IoIosEyeOff onClick={() => setVisibility(!visibility)} className={ styles.user__icon }/>
                                         }
-                                        { item.type === 'password' && <MdEdit className={ styles.user__icon }/> }
-                                    </div> }
+                                        { item.type === 'password' && <MdEdit className={ styles.user__icon } onClick={ () => setContent('alterar senha') }/> }
+                                    </div> 
+                                }
                             </div>
                         </div>
                     )}
                 </div>
-            </section>
+            </section> }
         </main>
     </div>
   )
