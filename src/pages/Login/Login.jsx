@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './Login.module.scss'
 
 import Header from 'src/components/Header/Header'
@@ -9,11 +9,13 @@ import Text from 'src/components/Text/Text'
 
 import { useForm } from 'react-hook-form'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { TbAlertCircleFilled } from 'react-icons/tb'
+import { IoAlertCircleOutline } from "react-icons/io5";
+import { IoMdEye, IoIosEyeOff } from "react-icons/io";
 import { useAuthContext } from 'src/hooks/useAuthContext'
 
 const Login = () => {
 
+    const [ visibility, setVisibility ] = useState(false)
     const { submitSignIn } = useAuthContext()
     const navigate = useNavigate()
     const { register, handleSubmit, formState:{ errors }, } = useForm()
@@ -35,7 +37,7 @@ const Login = () => {
                         register={register}
                         required
                         // validate={ () => submitSignIn }
-                        icon={errors?.username && <TbAlertCircleFilled className={ styles.login__iconError } />}
+                        iconError={errors?.username && <IoAlertCircleOutline className={ styles.login__iconError } />}
                         errorText= { errors?.username?.type === 'required' && <Text className='error' text='Este campo é obrigatório!' /> }
                         // errorText= { errors?.username?.type === 'required'? <Text className='error' text='Este campo é obrigatório!' />: errors?.username?.type === 'validate'? <Text className='error' text='Usuário ou senha inválido!' />: "" }
                     />
@@ -43,15 +45,20 @@ const Login = () => {
                         name='password'
                         label='Senha'
                         sideLabel={ <NavLink className={styles.login__sideLabel} to='/esqueciminhasenha'>Esqueci minha senha</NavLink>  }
-                        type='password'
+                        type={ visibility? 'text': 'password' } 
                         placeholder='Digite sua senha'
                         typeClassName='form__input'
                         styleClassName={errors?.password && "form__inputError"}
                         register={register}
                         required
                         // validate={ () => submitSignIn }
-                        icon={errors?.password && <TbAlertCircleFilled className={ styles.login__iconError } />}
+                        iconError={errors?.password && <IoAlertCircleOutline className={ styles.login__iconError } />}
                         errorText= { errors?.password?.type === 'required' && <Text className='error' text='Este campo é obrigatório!' /> }
+                        icon={
+                            visibility? 
+                            <IoMdEye onClick={() => setVisibility(!visibility)} className={ styles.login__icon }/>: 
+                            <IoIosEyeOff onClick={() => setVisibility(!visibility)} className={ styles.login__icon }/>
+                        }
                         // errorText= { errors?.password?.type === 'required'? <Text className='error' text='Este campo é obrigatório!' />: errors?.password?.type === 'validate'? <Text className='error' text='Usuário ou senha inválido!' />: "" }
                     />
                     <Button btnClassName={ styles.login__btnSubmit } txtClassName='white' type='submit' title='Entrar'/>
