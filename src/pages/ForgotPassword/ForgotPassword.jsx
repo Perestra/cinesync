@@ -6,8 +6,9 @@ import Subtitle from 'src/components/Subtitle/Subtitle'
 import Header from 'src/components/Header/Header'
 import Button from 'src/components/Button/Button'
 import Text from 'src/components/Text/Text'
+
 import { useAccountContext } from 'src/hooks/useAccountContext'
-import { TbAlertCircleFilled } from 'react-icons/tb'
+import { IoAlertCircleOutline } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
@@ -34,7 +35,7 @@ const ForgotPassword = () => {
                         register={register}
                         required
                         validate={value => isValidEmail(value) }
-                        icon={errors?.email && <TbAlertCircleFilled className={ styles.forgotPassword__iconError } />}
+                        iconError={errors?.email && <IoAlertCircleOutline className={ styles.forgotPassword__iconError } />}
                         errorText= { errors?.email?.type === 'required'? <Text className='error' text='Este campo é obrigatório!' /> : errors?.email?.type === 'validate'? <Text className='error' text='Não existe uma conta com esse e-mail!' /> : "" }
                     />
                     <Button btnClassName={ styles.forgotPassword__btnSubmit } txtClassName='white' type='submit' title='Continuar'/>    

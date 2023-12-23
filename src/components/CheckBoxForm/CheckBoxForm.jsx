@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './CheckBoxForm.module.scss'
 
-const CheckBoxForm = ({ name, label, styleClassName, register, required, icon, errorText }) => {
+const CheckBoxForm = ({ name, label, styleClassName, register, required, iconError, errorText }) => {
   return (
     <div className={ styles.form }>
       <div className={ `${styles.form__field} ` }>
@@ -13,7 +13,7 @@ const CheckBoxForm = ({ name, label, styleClassName, register, required, icon, e
           {...register(name, { required })}
         />
         <label htmlFor={name} className={ styles.form__label }>{label}</label>
-        {icon}
+        {iconError}
       </div>
       <div className={styles.form__errorText}>
         { errorText }
