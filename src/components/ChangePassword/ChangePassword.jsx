@@ -17,9 +17,14 @@ const ChangePassword = ({ setContent }) => {
     const [ passwordConfirmationVisible, setpasswordConfirmationVisible ] = useState(false)
 
     const { register, handleSubmit, watch, formState:{ errors }, } = useForm()
-    const { ChangePassword } = useAccountContext()
+    const { ChangePassword, isValidPassword } = useAccountContext()
 
     const watchPassword = watch("passwordChange")
+
+    const isPasswordEqual = (value) => {
+        if(value === watchPassword) { return true }
+        return false
+    }
 
   return (
     <section className={ styles.ChangePassword }>
@@ -34,13 +39,17 @@ const ChangePassword = ({ setContent }) => {
                 styleClassName={errors?.passwordChange && "form__inputError"}
                 register={register}
                 required
+                validate={ (value) => isValidPassword(value) }
                 iconError={errors?.passwordChange && <IoAlertCircleOutline className={ styles.ChangePassword__iconError } />}
                 icon={
                     passwordVisible? 
                     <IoMdEye onClick={() => setPasswordVisible(!passwordVisible)} className={ styles.ChangePassword__icon }/>: 
                     <IoIosEyeOff onClick={() => setPasswordVisible(!passwordVisible)} className={ styles.ChangePassword__icon }/>
                 }
-                errorText= { errors?.passwordChange?.type === 'required' && <Text className='error' text='Este campo é obrigatório!' /> }
+                errorText= { 
+                    errors?.passwordChange?.type === 'required'? <Text className='error' text='Este campo é obrigatório!' />: 
+                    errors?.passwordChange?.type === 'validate'? <Text className='error' text='A nova senha deve ser diferente da atual!' /> : ""
+                }
             />
             <InputForm 
                 name='passwordConfirmation'
@@ -51,15 +60,16 @@ const ChangePassword = ({ setContent }) => {
                 styleClassName={errors?.passwordConfirmation && "form__inputError"}
                 register={register}
                 required
-                validate={ (value) => value === watchPassword }
-                //(value) => isValidPassword(isValidPassword)
+                validate= { (value) => isPasswordEqual(value) }
                 iconError={errors?.passwordConfirmation && <IoAlertCircleOutline className={ styles.ChangePassword__iconError } />}
                 icon={
                     passwordConfirmationVisible? 
                     <IoMdEye onClick={() => setpasswordConfirmationVisible(!passwordConfirmationVisible)} className={ styles.ChangePassword__icon }/>: 
                     <IoIosEyeOff onClick={() => setpasswordConfirmationVisible(!passwordConfirmationVisible)} className={ styles.ChangePassword__icon }/>
                 }
-                errorText= { errors?.passwordConfirmation?.type === 'required'? <Text className='error' text='Este campo é obrigatório!' /> : errors?.passwordConfirmation?.type === 'validate'? <Text className='error' text='A confirmação de senha deve ser igual a senha!' /> : "" }
+                errorText= { 
+                    errors?.passwordConfirmation?.type === 'required'? <Text className='error' text='Este campo é obrigatório!' />:
+                    errors?.passwordConfirmation?.type === 'validate'? <Text className='error' text='A confirmação de senha deve ser igual a senha!' /> : "" }
             />
             <Button btnClassName={ styles.ChangePassword__btnSubmit } txtClassName='white' type='submit' title='Confirmar'/>
         </form>    

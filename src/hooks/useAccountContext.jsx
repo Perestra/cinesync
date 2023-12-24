@@ -18,8 +18,8 @@ export function useAccountContext() {
     }
 
     const isValidPassword = value => {
-        const findedAccount = accounts.some(account => value === authUser.password)
-        return findedAccount
+        if(value !== authUser.password) {return true}
+        return false
     }
 
     const isValidEmail = value => {
@@ -54,13 +54,12 @@ export function useAccountContext() {
 
         const newPassword = data.passwordChange
 
-        if(userLogged.password != data.passwordChange) {
+        if(userLogged.password != newPassword) {
             const userAccounts = [...accounts]
             userAccounts[index].password = newPassword
 
             setAccounts( userAccounts )
             setAuthUser()
-            navigate('/login')
         } 
     }
 

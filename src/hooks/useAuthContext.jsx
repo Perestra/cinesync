@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 import { AccountContext } from "src/contexts/AccountContext"
@@ -8,8 +8,9 @@ import { v4 as uuid } from "uuid"
 
 export function useAuthContext() {
 
-    const { accounts } = useContext(AccountContext)
     const { authUser, setAuthUser } = useContext(AuthContext)
+    const { accounts } = useContext(AccountContext)
+
     const navigate = useNavigate()
 
     const generateAuth = data => {
@@ -26,6 +27,7 @@ export function useAuthContext() {
   
     const submitSignIn = ( data ) => {
         const findedAccount = accounts.find(account => data.username === account.username && data.password === account.password)
+
         if(findedAccount) {
             generateAuth(findedAccount)
             navigate('/inicio')
