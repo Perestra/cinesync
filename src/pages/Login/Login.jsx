@@ -17,8 +17,10 @@ const Login = () => {
 
     const [ visibility, setVisibility ] = useState(false)
     const { submitSignIn } = useAuthContext()
+
     const navigate = useNavigate()
     const { register, handleSubmit, formState:{ errors }, } = useForm()
+
 
     return (
     <div className={ styles.login }>
@@ -26,7 +28,7 @@ const Login = () => {
         <main className={ styles.login__main }>
             <section className={ styles.login__section }>
                 <Subtitle text='Login' color='orange'/>   
-                <form className={ styles.login__form } onSubmit={handleSubmit(submitSignIn)}>
+                <form className={ styles.login__form } onSubmit={handleSubmit(submitSignIn)}> 
                     <InputForm 
                         name='username'
                         label='Usuário'
@@ -36,10 +38,9 @@ const Login = () => {
                         styleClassName={errors?.username && "form__inputError"}
                         register={register}
                         required
-                        // validate={ () => submitSignIn }
+                        // validate={ () => findAccount === false }
                         iconError={errors?.username && <IoAlertCircleOutline className={ styles.login__iconError } />}
                         errorText= { errors?.username?.type === 'required' && <Text className='error' text='Este campo é obrigatório!' /> }
-                        // errorText= { errors?.username?.type === 'required'? <Text className='error' text='Este campo é obrigatório!' />: errors?.username?.type === 'validate'? <Text className='error' text='Usuário ou senha inválido!' />: "" }
                     />
                     <InputForm 
                         name='password'
@@ -51,18 +52,18 @@ const Login = () => {
                         styleClassName={errors?.password && "form__inputError"}
                         register={register}
                         required
-                        // validate={ () => submitSignIn }
-                        iconError={errors?.password && <IoAlertCircleOutline className={ styles.login__iconError } />}
-                        errorText= { errors?.password?.type === 'required' && <Text className='error' text='Este campo é obrigatório!' /> }
+                        // validate={ () => findAccount === false }
                         icon={
                             visibility? 
                             <IoMdEye onClick={() => setVisibility(!visibility)} className={ styles.login__icon }/>: 
                             <IoIosEyeOff onClick={() => setVisibility(!visibility)} className={ styles.login__icon }/>
                         }
-                        // errorText= { errors?.password?.type === 'required'? <Text className='error' text='Este campo é obrigatório!' />: errors?.password?.type === 'validate'? <Text className='error' text='Usuário ou senha inválido!' />: "" }
+                        iconError={errors?.password && <IoAlertCircleOutline className={ styles.login__iconError } />}
+                        errorText= { errors?.password?.type === 'required' && <Text className='error' text='Este campo é obrigatório!' /> }
                     />
                     <Button btnClassName={ styles.login__btnSubmit } txtClassName='white' type='submit' title='Entrar'/>
-                </form>     
+                </form>  
+                {console.log(errors)}   
                 <div className={ styles.login__createAccount }>
                     <Text className='gray' text='É novo por aqui?'/>
                     <Button btnClassName={ styles.login__btnCreateAccount } txtClassName='black' title='Criar conta' onClick={ () => navigate('/criarconta') }/>
