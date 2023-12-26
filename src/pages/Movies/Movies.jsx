@@ -66,6 +66,10 @@ const Movies = () => {
                             { filterByGenre?.map( film => 
                                 <li key={film.id} className={ styles.movies__li} >
                                     <Card 
+                                        id={ film.id }
+                                        type='movie'
+                                        name={ film.title? film.title: film.name }
+                                        date={ film.release_date }
                                         src={`${posterBaseURL}${film.poster_path}`} 
                                         alt={`Poster do filme ${film.title}`} 
                                         onClick={ () => getMovieId(film?.id) }

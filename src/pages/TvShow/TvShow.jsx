@@ -66,6 +66,10 @@ const TvShow = ({  }) => {
                             { filterByGenre?.map( tv => 
                                 <li key={tv.id} className={ styles.movies__li} >
                                     <Card 
+                                        id={ tv.id }
+                                        type='tv'
+                                        name={ tv.title? tv.title: tv.name }
+                                        date={ tv.first_air_date }
                                         src={`${posterBaseURL}${tv.poster_path}`} 
                                         alt={`Poster da série ${tv.name}`} 
                                         onClick={ () => getMovieId(tv.id) }
