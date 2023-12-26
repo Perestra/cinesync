@@ -5,12 +5,9 @@ import "slick-carousel/slick/slick-theme.css";
 
 import Card from 'src/components/Card/Card'
 import Subtitle from 'src/components/Subtitle/Subtitle'
-import tmdb from 'src/api/tmdbApi';
 import Slider from 'react-slick'
 
-import { useAxios } from 'src/hooks/useAxios';
-
-const BlockBusters = ({ posterTitle, url, posterBaseURL, getFilmData }) => {
+const BlockBusters = ({ posterTitle, cards, posterBaseURL, setFilmData }) => {
 
     const sliderConfig = {
         infinite: false,
@@ -22,18 +19,25 @@ const BlockBusters = ({ posterTitle, url, posterBaseURL, getFilmData }) => {
         slidesToScroll: 1
     }
 
-    const { results, isLoading, error } = useAxios(tmdb,'get', url)
-
+    const getFilmData = (id, title, media, backdrop, poster ) => {
+        setFilmData({id, title, media, backdrop, poster })
+        window.scrollTo(0,0)
+    }
+   
   return (
     <section className={ styles.blockbusters }>
         <Subtitle color='white' text={ posterTitle } />
         <Slider { ...sliderConfig }>
-            { results.map( film => 
+            { cards?.map( film => 
                 <Card 
-                key={ film.id }
-                src={`${posterBaseURL}${film.poster_path}`} 
-                alt={`Poster do filme ${film.title}`}
-                onClick={ () => getFilmData(film.id, film.title? film.title: film.name,  film.media_type, film.backdrop_path) }
+                    key={ film.id }
+                    id={ film.id }
+                    type={ film.media_type }
+                    name={ film.title? film.title: film.name }
+                    date={ film.release_date? film.release_date: film.first_air_date  }
+                    src={`${posterBaseURL}${film.poster_path}`} 
+                    alt={`Poster do filme ${film.title? film.title: film.name}`}
+                    onClick={ () => getFilmData(film.id, film.title? film.title: film.name,  film.media_type, film.backdrop_path, film.poster_path) } 
                 /> 
             )}
         </Slider>    
