@@ -1,0 +1,58 @@
+.watchList {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 80px;
+
+    &__main {
+        width: 100%;
+        max-width: 90%;
+        min-height: 100vh;
+        margin: auto;
+    }
+
+    &__container {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        row-gap: 45px;
+
+        & > h1 {
+            border-bottom: 1px solid var(--tertiaryText);
+        }
+
+        & > p {
+            text-align: center;
+        }
+    }
+
+    &__cardsContainer {
+        width: 100%;
+        height: auto;
+    }
+
+    &__cards {
+        width: 100%;
+        height: auto;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 45px;
+    }
+
+    &__card { 
+        list-style: none;
+    }
+
+    &__data {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+    }
+}

@@ -15,6 +15,7 @@ import TvShow from 'src/pages/TvShow/TvShow'
 import FilmDetails from 'src/pages/FilmDetails/FilmDetails'
 import TvShowDetails from 'src/pages/TvShowDetails/TvShowDetails'
 import User from 'src/pages/User/User'
+import WatchList from 'src/pages/WatchList/WatchList'
 
 import Footer from 'src/components/Footer/Footer'
 
@@ -37,6 +38,7 @@ const Routers = () => {
               <Route index element={ <RequireAuth><TvShow /></RequireAuth> }/>
               <Route path=':id' element={ <RequireAuth><TvShowDetails /></RequireAuth> }/>
             </Route>  
+            <Route path='minhalista' element={ <RequireAuth><WatchList /></RequireAuth> }/>  
             <Route path='usuario' element={ <RequireAuth><User /></RequireAuth> }/>  
           </Routes>
         </AccountProvider>
