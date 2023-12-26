@@ -8,6 +8,7 @@ import BlockBusters from 'src/components/BlockBusters/BlockBusters';
 import HighlightFilm from 'src/components/HighlightFilm/HighlightFilm';
 
 import { useAuthContext } from 'src/hooks/useAuthContext';
+import { getAPIData } from 'src/helper/getAPIData';
 
 const Home = () => {
 
@@ -17,13 +18,13 @@ const Home = () => {
     id:872585, 
     title: 'Oppenheimer',
     media:'movie', 
-    backdrop:'/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg'
+    backdrop:'/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg',
+    poster: '/c0DCmfC7Et2K3URnIJ4ahJpeXR2.jpg'
   })
 
-  const getFilmData = (id, title, media, backdrop ) => {
-    setFilmData({id, title, media, backdrop })
-    window.scrollTo(0,0)
-  }
+  const all = getAPIData('/trending/all/week').results 
+  const movie = getAPIData('/trending/movie/week' ).results 
+  const tv = getAPIData('/trending/tv/week').results 
 
   const posterBaseURL = 'https://image.tmdb.org/t/p/w500'
   const backDropBaseURL = 'https://image.tmdb.org/t/p/original'
@@ -38,9 +39,24 @@ const Home = () => {
         <HighlightFilm filmData={filmData} />
       </div>
       <main className={ styles.home__main }>
-        <BlockBusters posterBaseURL={posterBaseURL} posterTitle='Populares da semana' url='/trending/all/week' getFilmData={ getFilmData } />
-        <BlockBusters posterBaseURL={posterBaseURL} posterTitle='Filmes populares' url='/trending/movie/week' getFilmData={ getFilmData } />
-        <BlockBusters posterBaseURL={posterBaseURL} posterTitle='Séries populares' url='/trending/tv/week' getFilmData={ getFilmData } />
+        <BlockBusters
+          cards={ all } 
+          posterBaseURL={posterBaseURL} 
+          posterTitle='Populares da semana'
+          setFilmData={ setFilmData } 
+        />
+        <BlockBusters
+          cards={ movie } 
+          posterBaseURL={posterBaseURL} 
+          posterTitle='Filmes populares'
+          setFilmData={ setFilmData } 
+        />
+        <BlockBusters
+          cards={ tv } 
+          posterBaseURL={posterBaseURL} 
+          posterTitle='Séries populares'
+          setFilmData={ setFilmData } 
+        />
       </main>
     </div>
   )
