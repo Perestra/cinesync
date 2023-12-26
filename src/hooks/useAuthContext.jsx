@@ -26,7 +26,7 @@ export function useAuthContext() {
     } 
   
     const submitSignIn = ( data ) => {
-        const findedAccount = accounts.find(account => data.username === account.username && data.password === account.password)
+        const findedAccount = accounts?.find(account => data.username === account.username && data.password === account.password)
 
         if(findedAccount) {
             generateAuth(findedAccount)

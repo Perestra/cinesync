@@ -13,7 +13,7 @@ export function useAccountContext() {
     const navigate = useNavigate()
 
     const isValidUsername = value => {
-        const findedAccount = accounts.some(account => value === account.username)
+        const findedAccount = accounts?.some(account => value === account.username)
         return findedAccount
     }
 
@@ -23,7 +23,7 @@ export function useAccountContext() {
     }
 
     const isValidEmail = value => {
-        const findedAccount = accounts.some(account => value === account.email)
+        const findedAccount = accounts?.some(account => value === account.email)
         return findedAccount
     }
 
@@ -42,7 +42,8 @@ export function useAccountContext() {
             fullname: data.fullname,
             username: data.username,
             email: data.email,
-            password: data.password
+            password: data.password,
+            watchList: []
         }
         createAccount(infoAccount)
         navigate('/login')
