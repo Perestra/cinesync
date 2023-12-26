@@ -63,7 +63,6 @@ const Login = () => {
                     />
                     <Button btnClassName={ styles.login__btnSubmit } txtClassName='white' type='submit' title='Entrar'/>
                 </form>  
-                {console.log(errors)}   
                 <div className={ styles.login__createAccount }>
                     <Text className='gray' text='É novo por aqui?'/>
                     <Button btnClassName={ styles.login__btnCreateAccount } txtClassName='black' title='Criar conta' onClick={ () => navigate('/criarconta') }/>
