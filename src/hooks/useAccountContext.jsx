@@ -6,8 +6,8 @@ import { useAuthContext } from "./useAuthContext"
 
 export function useAccountContext() {
 
-    const { accounts, setAccounts } = useContext(AccountContext)
-    const { authUser, setAuthUser, submitSignIn } = useAuthContext()
+    let { accounts, setAccounts } = useContext(AccountContext)
+    let { authUser, setAuthUser, submitSignIn } = useAuthContext()
     const [ userPassword, setUserPassword ] = useState('')
 
     const navigate = useNavigate()
@@ -64,5 +64,13 @@ export function useAccountContext() {
         } 
     }
 
-    return {accounts, setAccounts, userPassword, isValidUsername, isValidPassword, isValidEmail, showPassword, createAccount, submitGenerateAccount, submitSignIn, ChangePassword}
+    const deleteAccount = id => {
+        const accountsFiltered = accounts.filter( user => user.id !== id)
+        accounts = [...accountsFiltered]
+        setAccounts( [...accounts] )
+        setAuthUser()
+        navigate('/login')
+    }
+
+    return {accounts, setAccounts, userPassword, isValidUsername, isValidPassword, isValidEmail, showPassword, createAccount, submitGenerateAccount, submitSignIn, ChangePassword, deleteAccount}
 }

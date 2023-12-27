@@ -6,16 +6,22 @@ import Title from 'src/components/Title/Title'
 import Subtitle from 'src/components/Subtitle/Subtitle'
 import Text from 'src/components/Text/Text'
 import ChangePassword from 'src/components/ChangePassword/ChangePassword'
+import ConfirmAlert from 'src/components/ConfirmAlert/ConfirmAlert'
+import Button from 'src/components/Button/Button'
 
 import { useAuthContext } from 'src/hooks/useAuthContext'
 import { MdEdit } from "react-icons/md";
 import { IoMdEye, IoIosEyeOff } from "react-icons/io";
+import { useAccountContext } from 'src/hooks/useAccountContext'
 
 const User = () => {
 
     const { authUser } = useAuthContext()
+    const { deleteAccount } = useAccountContext()
+
     const [ visibility, setVisibility ] = useState(false)
     const [ content, setContent ] = useState('configurações')
+    const [ dialog, setDialog ] = useState(false)
 
     const userLogo = name => {
         const firstletter = name?.split(' ')[0].split('')[0]
@@ -82,13 +88,21 @@ const User = () => {
                                             <IoMdEye onClick={() => setVisibility(!visibility)} className={ styles.user__icon }/>: 
                                             <IoIosEyeOff onClick={() => setVisibility(!visibility)} className={ styles.user__icon }/>
                                         }
-                                        { item.type === 'password' && <MdEdit className={ styles.user__icon } onClick={ () => setContent('alterar senha') }/> }
+                                        { item.type === 'password' && <MdEdit className={ styles.user__icon } onClick={ () => setContent('alterar senha')} /> }
                                     </div> 
                                 }
                             </div>
                         </div>
                     )}
                 </div>
+                <ConfirmAlert  
+                    open={dialog}
+                    title='Você tem certeza?' 
+                    text='Caso confirme, a sua conta será excluida para sempre!' 
+                    confirmOnClick={ () => deleteAccount(authUser.id) } 
+                    refuseOnClick={ () => setDialog(!dialog) } 
+                />
+                <Button btnClassName={ styles.user__btnDelete } txtClassName='white' title='Excluir conta' onClick={ () => setDialog(!dialog) } />
             </section> }
         </main>
     </div>

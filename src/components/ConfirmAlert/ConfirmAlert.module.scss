@@ -1,0 +1,77 @@
+.dialog {
+    position: absolute;
+    top: 55px;
+
+    width: 100%;
+    height: 100%;
+
+    background: none;
+    border: none;
+    outline: none;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    &__container { border: 2px solid var(--secondaryText);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+
+        background-color: var(--primaryText);
+        padding: 30px;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5px;
+    }
+
+    &__icon {
+        width: 40px;
+        height: 40px;
+
+        color: red;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 25px;
+    }
+
+    &__btnConfirm {
+        border: 1px solid var(--primaryText);
+        border-radius: 5px;
+        background: red;
+        padding: 10px 50px;
+        cursor: pointer;
+    
+        & > p {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--secondaryText);
+        }
+    }
+
+    &__btnCancel {
+        border: 1px solid var(--primaryText);
+        border-radius: 5px;
+        background: var(--tertiaryText);
+        padding: 10px 50px;
+        cursor: pointer;
+    
+        & > p {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--secondaryText);
+        }
+    }
+}

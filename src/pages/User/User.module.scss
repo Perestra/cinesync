@@ -9,6 +9,7 @@
         height: auto;
         margin: auto;
 
+        position: relative;
         display: flex;
         flex-direction: column;
         row-gap: 80px;
@@ -108,5 +109,19 @@
 
         cursor: pointer;
         color: var(--primaryText);
+    }
+
+    &__btnDelete {
+        border: 1px solid var(--primaryText);
+        border-radius: 5px;
+        background: red;
+        padding: 10px 50px;
+        cursor: pointer;
+    
+        & > p {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--secondaryText);
+        }
     }
 }
