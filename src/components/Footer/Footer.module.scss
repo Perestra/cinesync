@@ -25,3 +25,30 @@
         }
     }
 }
+
+@media screen and (max-width: 1024px) {
+    .footer {
+        margin-top: 40px;
+        & > img {
+            width: 120px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer {
+        margin-top: 40px;
+        & > img {
+            width: 90px;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .footer {
+        margin-top: 40px;
+        & > img {
+            width: 70px;
+        }
+    }
+}

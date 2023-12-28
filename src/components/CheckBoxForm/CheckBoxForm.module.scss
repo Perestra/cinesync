@@ -37,3 +37,11 @@
     }
 }
 
+@media screen and (max-width: 645px) {
+    .form {
+        &__label {
+            font-size: 0.75rem;
+        }
+    }
+}
+

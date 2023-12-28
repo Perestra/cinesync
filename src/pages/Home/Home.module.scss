@@ -51,3 +51,15 @@
     }
 }
 
+@media screen and (max-width:1024px) {
+    .home {
+        row-gap: 40px;
+        &__filmData {
+            row-gap: 30px;
+        }
+        &__main {
+            row-gap: 25px;
+        }
+    }
+}
+

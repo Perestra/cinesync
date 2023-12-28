@@ -1,8 +1,7 @@
 .card {
     position: relative;
-    width: 100%;
-    max-width: 250px;
-    height: 360px;
+    width: 250px;
+    height: auto;
 
     &:hover &__image{
         background: linear-gradient(180deg, rgba(12, 12, 12, 0.00) 80%, #0C0C0C 100%, );
@@ -27,7 +26,7 @@
         right: 10px;
 
         display: none;
-        width:25px;
+        width: 25px;
         height: 25px;
 
         color: var(--primaryText);
@@ -37,6 +36,29 @@
 
         &:hover {
            transform: scale(1.12);
+        }
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .card {
+        width: 140px;
+        &__icon {
+            width: 15px;
+            height: 15px;
+
+            top: 5px;
+            right: 5px;
+        }
+    }
+}
+
+@media screen and (max-width:450px) {
+    .card {
+        width: 70px;
+        &__icon {
+            width: 10px;
+            height: 10px;
         }
     }
 }

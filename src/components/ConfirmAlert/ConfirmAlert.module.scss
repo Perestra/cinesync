@@ -1,9 +1,9 @@
 .dialog {
     position: absolute;
-    top: 55px;
+    top: 120px;
 
     width: 100%;
-    height: 100%;
+    height: 550px;
 
     background: none;
     border: none;
@@ -11,7 +11,7 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 
-    &__container { border: 2px solid var(--secondaryText);
+    &__container { 
         position: absolute;
         top: 50%;
         left: 50%;
@@ -53,12 +53,6 @@
         background: red;
         padding: 10px 50px;
         cursor: pointer;
-    
-        & > p {
-            font-size: 0.875rem;
-            font-weight: 400;
-            color: var(--secondaryText);
-        }
     }
 
     &__btnCancel {
@@ -67,11 +61,46 @@
         background: var(--tertiaryText);
         padding: 10px 50px;
         cursor: pointer;
-    
-        & > p {
-            font-size: 0.875rem;
-            font-weight: 400;
-            color: var(--secondaryText);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .dialog {
+        top: 80px;
+        height: 420px;
+        &__container { 
+            max-width: 400px;
+            padding: 20px;
+        }
+        &__icon {
+            width: 30px;
+            height: 30px;
+        }
+        &__buttons {
+            margin-top: 15px;
+        }
+        &__btnConfirm {
+            padding: 10px 20px;
+        }
+        &__btnCancel {
+            padding: 10px 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dialog {
+        top: 60px;
+        height: 530px;
+        &__container { 
+            max-width: 350px;
+            padding: 20px;
+        }
+        &__btnConfirm {
+            padding: 7px 12px;
+        }
+        &__btnCancel {
+            padding: 7px 12px;
         }
     }
 }

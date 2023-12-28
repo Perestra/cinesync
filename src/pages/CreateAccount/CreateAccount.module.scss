@@ -22,6 +22,7 @@
         max-width: 400px;
         height: auto;
         padding: 35px 0;
+        margin: 0 20px;
 
         display: flex;
         flex-direction: column;
@@ -72,12 +73,6 @@
         background: var(--primaryLinearButton);
         padding: 10px 50px;
         cursor: pointer;
-    
-        & > p {
-            font-size: 0.875rem;
-            font-weight: 400;
-            color: var(--primaryText);
-        }
     }
 
     &__login {
@@ -99,11 +94,14 @@
         background: var(--secondaryLinearButton);
         padding: 10px 50px;
         cursor: pointer;
-    
-        & > p {
-            font-size: 0.875rem;
-            font-weight: 400;
-            color: var(--secondaryText);
+    }
+}
+
+@media screen and (max-width: 645px) {
+    .createAccount {
+        row-gap: 40px;
+        &__terms {
+            font-size: 0.75rem;
         }
     }
 }

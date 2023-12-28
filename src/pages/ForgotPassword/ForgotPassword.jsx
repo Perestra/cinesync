@@ -22,32 +22,34 @@ const ForgotPassword = () => {
     <div className={ styles.forgotPassword }>
         <Header display='nonVisible' content='center'/>
         <main className={ styles.forgotPassword__main }>
-            <Subtitle text='Esqueci minha senha' color='orange' />
-            <section className={ styles.forgotPassword__inputEmail }>
-                <form className={ styles.forgotPassword__form } onSubmit={ handleSubmit(showPassword) } >
-                    <InputForm 
-                        name='email'
-                        label='E-mail'
-                        type='email'
-                        placeholder='Digite seu e-mail'
-                        typeClassName='form__input'
-                        styleClassName={errors?.email && "form__inputError"}
-                        register={register}
-                        required
-                        validate={value => isValidEmail(value) }
-                        iconError={errors?.email && <IoAlertCircleOutline className={ styles.forgotPassword__iconError } />}
-                        errorText= { errors?.email?.type === 'required'? <Text className='error' text='Este campo é obrigatório!' /> : errors?.email?.type === 'validate'? <Text className='error' text='Não existe uma conta com esse e-mail!' /> : "" }
-                    />
-                    <Button btnClassName={ styles.forgotPassword__btnSubmit } txtClassName='white' type='submit' title='Continuar'/>    
-                </form>
-            </section>
-            <section className={ styles.forgotPassword__passwordData }>
-                <Text className='white' text='Senha:'/>
-                <div className={ styles.forgotPassword__password }>
-                    <Text className='black' text={ userPassword }/>
-                </div>
-            </section>
-            <Button btnClassName={ styles.forgotPassword__btnLogin } txtClassName='black' title='Ir para o login' onClick={ () => navigate('/login') }/>
+            <div className={ styles.forgotPassword__container }>
+                <Subtitle text='Esqueci minha senha' color='orange' />
+                <section className={ styles.forgotPassword__inputEmail }>
+                    <form className={ styles.forgotPassword__form } onSubmit={ handleSubmit(showPassword) } >
+                        <InputForm 
+                            name='email'
+                            label='E-mail'
+                            type='email'
+                            placeholder='Digite seu e-mail'
+                            typeClassName='form__input'
+                            styleClassName={errors?.email && "form__inputError"}
+                            register={register}
+                            required
+                            validate={value => isValidEmail(value) }
+                            iconError={errors?.email && <IoAlertCircleOutline className={ styles.forgotPassword__iconError } />}
+                            errorText= { errors?.email?.type === 'required'? <Text className='error' text='Este campo é obrigatório!' /> : errors?.email?.type === 'validate'? <Text className='error' text='Não existe uma conta com esse e-mail!' /> : "" }
+                        />
+                        <Button btnClassName={ styles.forgotPassword__btnSubmit } txtClassName='white' type='submit' title='Continuar'/>    
+                    </form>
+                </section>
+                <section className={ styles.forgotPassword__passwordData }>
+                    <Text className='white' text='Senha:'/>
+                    <div className={ styles.forgotPassword__password }>
+                        <Text className='black' text={ userPassword }/>
+                    </div>
+                </section>
+                <Button btnClassName={ styles.forgotPassword__btnLogin } txtClassName='black' title='Ir para o login' onClick={ () => navigate('/login') }/>    
+            </div>
         </main>
     </div>
   )

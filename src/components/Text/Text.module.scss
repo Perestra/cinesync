@@ -1,23 +1,23 @@
 .white {
-    font-size: 0.875rem;
-    font-weight: 400;
-    color: var(--primaryText);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--primaryText);
 }
 .gray {
-    font-size: 0.875rem;
-    font-weight: 400;
-    color: var(--tertiaryText);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--tertiaryText);
 }
 .black {
-    font-size: 0.875rem;
-    font-weight: 400;
-    color: var(--secondaryText);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--secondaryText);
 }
 .error {
-    width: 100%;
-    font-size: 0.75rem;
-    font-weight: 200;
-    color: red;
+  width: 100%;
+  font-size: 0.75rem;
+  font-weight: 200;
+  color: red;
 }
 .slide-in-bottom {
 	-webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -49,4 +49,16 @@
       opacity: 1;
     }
   }
+
+@media screen and (max-width: 1024px) {
+  .black, .gray, .white {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .black, .gray, .white {
+    font-size: 0.625rem;
+  }
+}
   

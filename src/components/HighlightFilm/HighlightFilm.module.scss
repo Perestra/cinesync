@@ -44,8 +44,13 @@
         display: flex;
 
         & > p {
-            padding: 0 10px;
             position: relative;
+        }
+        & > p:first-child {
+            padding-right: 10px;
+        }
+        & > p:not(:first-child) {
+            padding: 0 10px;
         }
         & > p:not(:last-child)::after {
             position: absolute;
@@ -90,7 +95,7 @@
     
     &__btnKnowMore {
         border: 1px solid var(--secondaryText);
-        border-radius: 7px;
+        border-radius: 10px;
         background: var(--secondaryLinearButton);
         padding: 7px 15px;
         cursor: pointer;
@@ -111,6 +116,59 @@
         width: 20px;
         height: 20px;
         color: var(--secondaryText);
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .HighlightFilm {
+        &__data {
+            max-width: 70%;
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .HighlightFilm {
+        &__dataContainer {
+            row-gap: 20px;
+        }
+        &__data {
+            max-width: 100%;
+            min-height: 170px;
+            & > p {
+                margin: 20px 0;
+            }
+        }
+        &__rating {
+            & > img {
+                width: 35px;
+            }
+            & > p {
+                font-size: 0.875rem;
+            }
+        }
+        &__buttons {
+            width: 100%;
+            height: auto;
+    
+            display: block;
+        }
+        &__btnKnowMore, &__btnPlay {
+            border-radius: 7px;
+        }
+        &__btnPlay {
+            margin-top: 10px;
+        }
+        &__iconPlay {
+            width: 15px;
+            height: 15px;
+            color: var(--primaryText);
+        }
+        &__iconKnowMore {
+            width: 15px;
+            height: 15px;
+            color: var(--secondaryText);
+        }
     }
 }
 

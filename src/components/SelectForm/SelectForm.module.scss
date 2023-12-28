@@ -23,3 +23,31 @@
         cursor: pointer;
     }
 }
+
+@media screen and (max-width:1024px) {
+    .form {
+        &__label {
+            font-size: 0.75rem;
+        }
+        &__select {
+            width: 100px;
+            height: 25px;
+            border-radius: 3px; 
+            font-size: 0.75rem;
+        }
+    }
+}
+
+@media screen and (max-width:645px) {
+    .form {
+        &__label {
+            font-size: 0.625rem;
+        }
+        &__select {
+            width: 70px;
+            height: 20px;
+            border-radius: 3px; 
+            font-size: 0.625rem;
+        }
+    }
+}

@@ -2,12 +2,13 @@
     position: absolute;
     top: 50px;
     right: 95px;
-    width: 350px;
 
-    visibility: hidden;
+    display: none;
     background-color: var(--primaryText);
     border-radius: 12px;
     padding: 10px;
+
+    z-index: 6;
 
     &__container {
         width: 100%;
@@ -20,8 +21,9 @@
 
     &__user {
         display: flex;
-        column-gap: 10px;
         align-items: center;
+        column-gap: 10px;
+        margin-right: 60px;
     }
 
     &__userPhoto {
@@ -42,10 +44,7 @@
 
     &__userInfo {
         & > h2 {
-            font-size: 1.125rem;
-        }
-        & > p {
-            font-size: 0.875rem;
+            font-size: 1.2rem;
         }
     }
 
@@ -57,7 +56,7 @@
         display: flex;
         flex-direction: column;
         row-gap: 5px;
-        margin-top: 5px;
+        margin: 5px 0;
     }
 
     &__list {
@@ -84,7 +83,7 @@
 }
 
 .openMenu {
-    visibility: visible;
+    display: block;
     -webkit-animation: openMenu 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both ;
     animation: openMenu 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both ;
 }
@@ -130,5 +129,40 @@
     }
     100% {
         opacity: 1;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .menu {
+        position: relative;
+        top: 10px;
+        right: 0;
+
+        margin: auto;
+        height: auto;
+
+        border-radius: 0px;
+        background: none;
+
+        &__user {
+            margin-right: 40px;
+        }
+        &__userInfo {
+            & > h2 {
+                font-size: 0.875rem;
+                color: var(--primaryText);
+            }
+        }
+        &__userPhoto {
+            width: 35px;
+            height: 35px;
+            font-size: 1.2rem;
+        }
+        &__listContainer {
+            border-bottom: 1px solid var(--tertiaryText);
+        }
+        &__list {
+            color: var(--primaryText);
+        }
     }
 }

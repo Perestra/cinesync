@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Galada&display=swap');
 
 .header {
+    position: relative;
+
     width: 100%;
     height: auto;
-
-    z-index: 1;
 
     &__container {
         width: 100%;
@@ -13,16 +13,33 @@
         margin: auto;
 
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        justify-content: space-between;
         column-gap: 50px;
-        
+
         & > span {
             font-size: 2.5rem;
             font-family: 'Galada', cursive;
             color: var(--primaryText);
+
+            z-index: 2;
         }
         
+    }
+
+    &__nav {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        justify-content: space-between;
+
+        z-index: 1;
+    }
+
+    &__userConfig {
+        display: flex;
+        flex-direction: column;
     }
 
     &__user {
@@ -46,6 +63,17 @@
 
         transition: all ease-in-out 0.2s;
     }
+
+    &__iconMenu {
+        display: none;
+
+        width: 20px;
+        height: 20px;
+        color: var(--primaryText);
+        cursor: pointer;
+
+        z-index: 1;
+    }
 }
 
 .visible {
@@ -59,4 +87,57 @@
 }
 .rotate {
     transform: rotate(180deg);
+}
+
+@media screen and (max-width: 1024px) {
+    .header {
+        &__nav {
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            display: none;
+            width: 300px;
+            height: 100vh;
+
+            justify-content: flex-end;
+            flex-direction: column-reverse;
+            row-gap: 50px;
+            padding: 80px 0;
+
+            border-left: 1px solid var(--secondaryText);
+            background-color: var(--backgroundBody);
+        }
+        &__iconMenu {
+            display: block;
+        }
+        &__container {
+            & > span {
+                font-size: 2.275rem;
+            }
+        }
+    }
+    .active {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        &__container {
+            & > span {
+                font-size: 1.875rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .header {
+        &__container {
+            & > span {
+                font-size: 1.3rem;
+            }
+        }
+    }
 }

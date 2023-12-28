@@ -59,3 +59,11 @@
     background-color: var(--tertiaryText);
 }
 
+@media screen and (max-width: 768px) {
+    .form {
+        &__label {
+            font-size: 0.75rem;
+        }
+    }
+}
+

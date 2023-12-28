@@ -13,6 +13,9 @@ html {
 body {
   background-color: var(--backgroundBody);
 }
+body.scroll-lock {
+  overflow: hidden;
+}
 :root {
   --primaryText: #FEFEFE;
   --secondaryText: #1E1E1E;

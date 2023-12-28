@@ -11,3 +11,12 @@
         column-gap: 75px;
     }
 }
+
+@media screen and (max-width: 1024px) {
+    .nav {
+        &__ul {
+            flex-direction: column;
+            row-gap: 50px;
+        }
+    }
+}

@@ -10,6 +10,7 @@ import Text from 'src/components/Text/Text'
 import ProfileCard from 'src/components/ProfileCard/ProfileCard';
 import imdb from 'src/assets/images/imdb.png'
 import notFoundCast from 'src/assets/svg/notFound_person.svg'
+import Card from 'src/components/Card/Card';
 import Slider from 'react-slick'
 
 import { useAuthContext } from 'src/hooks/useAuthContext'
@@ -27,7 +28,79 @@ const TvShowDetails = () => {
         lazyLoad: true,
         speed: 750,
         slidesToShow: 1.7,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1750,
+                settings: {
+                  slidesToShow: 1.3,
+                  slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 1400,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 5,
+                  slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 830,
+                settings: {
+                  slidesToShow: 4.5,
+                  slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 730,
+                settings: {
+                  slidesToShow: 4,
+                  slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 650,
+                settings: {
+                  slidesToShow: 3.5,
+                  slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 560,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 490,
+                settings: {
+                  slidesToShow: 2.5,
+                  slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 450,
+                settings: {
+                  slidesToShow: 3.5,
+                  slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 345,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 1,
+                }
+            },
+        ]
     }
 
     const { authUser } = useAuthContext()
@@ -52,12 +125,21 @@ const TvShowDetails = () => {
                 <section className={ styles.tv__highlight }>
                     <div className={ styles.tv__poster }>
                         { tv.poster_path && 
-                        <img src={ `${posterBaseURL}${tv.poster_path}` } alt={`Poster da série ${tv.name}`} /> }
+                            <Card 
+                                id={ tv.id }
+                                name={ tv.name }
+                                type='tv'
+                                date={ tvDate(tv.first_air_date, tv.last_air_date) }
+                                src={ `${posterBaseURL}${tv.poster_path}` } 
+                                alt={`Poster da série ${tv.name}`}
+                            /> 
+                        }
                         {tv.created_by?.length > 0 && 
                         <div className={ styles.tv__createdBy }>
                             <Text text='Criação' className='white' />
                             <Text text={ `${tv.created_by[0].name}` } className='gray' /> 
-                        </div> }
+                        </div> 
+                        }
                     </div> 
                     <div className={ styles.tv__highlightContent }>
                         <div className={ styles.tv__title }>

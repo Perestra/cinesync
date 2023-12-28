@@ -15,7 +15,6 @@
         row-gap: 80px;
 
         & > h1 {
-            font-size: 2.625rem;
             border-bottom: 1px solid var(--tertiaryText);
         }
     }
@@ -52,12 +51,6 @@
         font-size: 4rem;
         font-weight: 400;
         color: var(--primaryText);
-    }
-
-    &__data {
-        & > p {
-            font-size: 1rem;
-        }
     }
 
     &__form { 
@@ -117,11 +110,68 @@
         background: red;
         padding: 10px 50px;
         cursor: pointer;
-    
-        & > p {
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .user {
+        row-gap: 40px;
+        &__main { 
+            row-gap: 40px;
+        }
+        &__section { 
+            max-width: 100%;
+            row-gap: 35px;
+        }
+        &__photo {
+            width: 90px;
+            height: 90px;
+            font-size: 3rem;
+        }
+        &__input {
+            &[value] {
+                font-size: 0.75rem;
+            } 
+        }
+        &__btnDelete {
+            padding: 10px 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .user {
+        &__form { 
+            grid-template-columns: repeat(1, 1fr);
+            gap: 30px;
+        }
+        &__label { 
             font-size: 0.875rem;
-            font-weight: 400;
-            color: var(--secondaryText);
+        }
+        &__input {
+            &[value] {
+                font-size: 0.675rem;
+            } 
+        }
+        &__icons {
+            column-gap: 10px;
+        }
+        &__icon {
+            width: 15px;
+            height: 15px;
+        }
+        &__btnDelete {
+            padding: 7px 12px;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .user {
+        &__photo {
+            width: 60px;
+            height: 60px;
+            font-size: 2rem;
         }
     }
 }

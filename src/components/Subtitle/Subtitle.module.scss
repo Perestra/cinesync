@@ -12,3 +12,21 @@
     font-weight: 600;
     color: var(--secondaryText);
 }
+
+@media screen and (max-width: 1024px) {
+    .subtitle {
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .subtitle {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 645px) {
+    .subtitle {
+        font-size: 1.2rem;
+    }
+}

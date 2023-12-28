@@ -24,7 +24,7 @@
         flex-direction: column;
         row-gap: 80px;
 
-        background-position: 85% 15%;
+        background-position: 95% 5%;
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -52,7 +52,7 @@
         & > img {
             width: 500px;
             max-width: 250px;
-            height: 360px;
+            height: auto;
 
             object-fit: cover;
             border-radius: 10px;
@@ -61,9 +61,6 @@
     }
 
     &__filmDetails {
-        width: 100%;
-        height: 360px;
-
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -137,10 +134,10 @@
         border-radius: 7px;
         background: var(--primaryLinearButton);
         padding: 7px 15px;
-        margin-top: 20px;
         cursor: pointer;
     
         display: flex;
+        align-items: center;
         column-gap: 5px;
     }
 
@@ -175,9 +172,7 @@
         row-gap: 20px;
 
         & > h2 {
-            font-size: 1.375rem;
             font-weight: 600;
-
             padding-bottom: 5px;
             border-bottom: 1px solid var(--tertiaryText);
         }
@@ -242,6 +237,136 @@
        & > img {
         width: 320px;
         height: auto;
+        }
+    }
+}
+
+@media screen and (max-width:1440px) {
+    .filmDetails {
+        &__title {
+            max-width: 75%;
+        }
+    }
+}
+
+@media screen and (max-width:1165px) {
+    .filmDetails {
+        &__title {
+            max-width: 90%;
+        }
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .filmDetails {
+        row-gap: 40px;
+        &__backdrop {
+            min-height: 350px;
+            row-gap: 40px;
+        }
+        &__highlight {
+            column-gap: 15px;
+            margin: auto auto 20px auto;
+        }
+        &__filmData {
+            & > p:not(:first-child) {
+                padding: 0 5px;
+            }
+            & > p:first-child {
+                padding-right: 5px;
+            }
+        }
+        &__genres {
+            & > p {
+                padding: 0 5px;
+            }
+        }
+        &__filmInfos {
+            flex-direction: column;
+            gap: 20px;
+        }
+        &__filmCast {
+            max-width: 100%;
+            row-gap: 20px;
+        }
+        &__aside {
+            max-width: 100%;
+            gap: 25px;
+        }
+        &__caster {
+            gap: 20px;
+        }
+        
+        &__video {
+            & > video {
+             width: 140px;
+            }
+        }
+        &__btnTrailer {
+            left: 52.5px;
+            top: 35px;
+        }
+        &__iconTrailer {
+            width: 35px;
+            height: 35px;
+        }
+        &__image {
+            & > img {
+                width: 140px;
+            }
+        }
+        &__filmDetails {
+            row-gap: 20px;
+        }
+        &__title {
+            max-width: 100%;
+        }
+    }
+    
+}
+
+@media screen and (max-width:768px) {
+    .filmDetails {
+        &__backdrop {
+            min-height: 250px;
+        }
+        &__iconPlay {
+            width: 15px;
+            height: 15px;
+        }
+        &__rating {
+            & > img {
+                width: 35px;
+            }
+            & > p {
+                font-size: 0.875rem;
+            }
+        }
+        &__overview, &__casters, &__videos, &__images {
+            row-gap: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .filmDetails {
+        &__video {
+            & > video {
+             width: 80px;
+            }
+        }
+        &__btnTrailer {
+            left: 30px;
+            top: 20px;
+        }
+        &__iconTrailer {
+            width: 20px;
+            height: 20px;
+        }
+        &__image {
+            & > img {
+                width: 80px;
+            }
         }
     }
 }
