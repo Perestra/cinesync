@@ -3,7 +3,7 @@ import styles from './NavList.module.scss'
 
 import LinkList from 'src/components/LinkList/LinkList'
 
-const NavList = () => {
+const NavList = ({ onClick }) => {
 
   const listHeader = [
     {title:"Início",
@@ -28,6 +28,7 @@ const NavList = () => {
                 key={ index } 
                 to={ item.link } 
                 title={ item.title } 
+                onClick={ onClick }
               />
             )}
         </ul>

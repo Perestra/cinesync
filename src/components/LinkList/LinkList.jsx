@@ -3,7 +3,7 @@ import styles from './LinkList.module.scss'
 
 import { NavLink } from 'react-router-dom'
 
-const LinkList = ({ to, title }) => {
+const LinkList = ({ to, title, onClick }) => {
 
   const activeStyle = {
     color: '#ED8423',
@@ -16,6 +16,7 @@ const LinkList = ({ to, title }) => {
         to={ to }
         className={ styles.list__navlink } 
         style={({ isActive }) => isActive ? activeStyle : undefined}
+        onClick={ onClick }
       >
         <p className={ styles.list__text }>{ title }</p>  
       </NavLink>

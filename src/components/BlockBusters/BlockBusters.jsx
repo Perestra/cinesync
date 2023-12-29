@@ -106,8 +106,8 @@ const BlockBusters = ({ posterTitle, cards, posterBaseURL, setFilmData }) => {
   return (
     <section className={ styles.blockbusters }>
         <Subtitle color='white' text={ posterTitle } />
-        <Slider { ...sliderConfig }>
-            { cards?.map( film => 
+        { cards && <Slider { ...sliderConfig }>
+            { cards.map( film => 
                 <Card 
                     key={ film.id }
                     id={ film.id }
@@ -119,7 +119,7 @@ const BlockBusters = ({ posterTitle, cards, posterBaseURL, setFilmData }) => {
                     onClick={ () => getFilmData(film.id, film.title? film.title: film.name,  film.media_type, film.backdrop_path, film.poster_path) } 
                 /> 
             )}
-        </Slider>    
+        </Slider> }   
     </section>
   )
 }

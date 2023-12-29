@@ -237,6 +237,11 @@
             max-width: 100%;
             row-gap: 20px;
         }
+        &__rating {
+            & > p {
+                font-size: 1.3rem;
+            }
+        }
         &__images {
             max-width: 100%;
             gap: 25px;
