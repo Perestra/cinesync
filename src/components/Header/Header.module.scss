@@ -29,7 +29,7 @@
     &__nav {
         width: 100%;
         height: auto;
-
+        
         display: flex;
         justify-content: space-between;
 
@@ -65,15 +65,16 @@
         transition: all ease-in-out 0.2s;
     }
 
-    &__iconMenu {
-        display: none;
+    &__icons {
+        display: none; 
+        z-index: 1;
+    }
 
+    &__iconMenu {
         width: 30px;
         height: 30px;
         color: var(--primaryText);
         cursor: pointer;
-
-        z-index: 1;
     }
 }
 
@@ -108,9 +109,6 @@
 
             border-left: 1px solid var(--secondaryText);
             background-color: var(--backgroundBody);
-        }
-        &__iconMenu {
-            display: block;
         }
         &__container {
             & > span {

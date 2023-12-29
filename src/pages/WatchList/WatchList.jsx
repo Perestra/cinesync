@@ -33,7 +33,7 @@ const WatchList = () => {
 
     return (
     <div className={ styles.watchList }>
-        <Header content='visible' username={ authUser.username } />
+        <Header username={ authUser.username } mobile='visible' />
         <main className={ styles.watchList__main }>
             <div className={ styles.watchList__container }>
                 <Title text='Minha lista' /> 

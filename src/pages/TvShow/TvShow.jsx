@@ -34,7 +34,7 @@ const TvShow = ({  }) => {
 
     return (
     <div className={ styles.movies }>
-        <Header content='visible' username={ authUser.username } />
+        <Header username={ authUser.username } mobile='visible' />
         <main className={ styles.movies__main }>
             <div className={ styles.movies__container }>
                 <section className={ styles.movies__search }>

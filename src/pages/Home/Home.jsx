@@ -35,7 +35,7 @@ const Home = () => {
         <img src={`${backDropBaseURL}${filmData.backdrop}`} alt={`Plano de fundo de ${filmData.title}`} />
       </div>
       <div className={ styles.home__filmData }>
-        <Header content='visible' username={ authUser.username } />
+        <Header username={ authUser.username } mobile='visible' />
         <HighlightFilm filmData={filmData} />
       </div>
       <main className={ styles.home__main }>

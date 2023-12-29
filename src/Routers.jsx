@@ -16,6 +16,7 @@ import FilmDetails from 'src/pages/FilmDetails/FilmDetails'
 import TvShowDetails from 'src/pages/TvShowDetails/TvShowDetails'
 import User from 'src/pages/User/User'
 import WatchList from 'src/pages/WatchList/WatchList'
+import NotFound from 'src/pages/NotFound/NotFound'
 
 import Footer from 'src/components/Footer/Footer'
 
@@ -40,6 +41,7 @@ const Routers = () => {
             </Route>  
             <Route path='minhalista' element={ <RequireAuth><WatchList /></RequireAuth> }/>  
             <Route path='usuario' element={ <RequireAuth><User /></RequireAuth> }/>  
+            <Route path='*' element={ <NotFound /> }/>  
           </Routes>
         </AccountProvider>
         <Footer />

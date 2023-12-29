@@ -21,6 +21,7 @@ const UserMenu = ({ menu, container }) => {
 
     const userLogout = () => {
         setAuthUser()
+        window.document.body.classList.remove('scroll-lock')
         navigate('/')
     }
 

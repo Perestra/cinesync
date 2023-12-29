@@ -24,7 +24,7 @@ const Login = () => {
 
     return (
     <div className={ styles.login }>
-        <Header display='nonVisible' content='center'/>
+        <Header display='nonVisible' content='center' />
         <main className={ styles.login__main }>
             <section className={ styles.login__section }>
                 <Subtitle text='Login' color='orange'/>   

@@ -121,7 +121,7 @@ const TvShowDetails = () => {
     <div className={ styles.tv }>
         <div className={ styles.tv__container }>
             <div className={ styles.tv__backdrop } style={{ backgroundImage:`linear-gradient(0deg, rgba(12, 12, 12, 0.8) 0%, rgba(12, 12, 12, 0.8) 100%), url(${backDropBaseURL}${tv.backdrop_path})` }} >
-                <Header content='visible' username={ authUser.username } /> 
+                <Header username={ authUser.username } mobile='visible' /> 
                 <section className={ styles.tv__highlight }>
                     <div className={ styles.tv__poster }>
                         { tv.poster_path && 

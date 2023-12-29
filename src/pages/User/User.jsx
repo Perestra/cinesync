@@ -57,7 +57,7 @@ const User = () => {
 
   return (
     <div className={ styles.user }>
-        <Header content='visible' username={ authUser.username } />
+        <Header username={ authUser.username } mobile='visible' />
         <main className={ styles.user__main }>
             <Title text='Configurações da conta' />
             { content === 'alterar senha' && <ChangePassword setContent={setContent} /> }
