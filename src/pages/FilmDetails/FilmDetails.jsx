@@ -91,12 +91,12 @@ const FilmDetails = () => {
             {
                 breakpoint: 450,
                 settings: {
-                  slidesToShow: 3.5,
+                  slidesToShow: 3.8,
                   slidesToScroll: 1,
                 }
             },
             {
-                breakpoint: 345,
+                breakpoint: 350,
                 settings: {
                   slidesToShow: 3,
                   slidesToScroll: 1,

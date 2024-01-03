@@ -97,11 +97,14 @@
     }
 }
 
-@media screen and (max-width: 645px) {
+@media screen and (max-width: 768px) {
     .createAccount {
         row-gap: 40px;
         &__terms {
             font-size: 0.75rem;
+        }
+        &__section {
+            padding: 20px 0;
         }
     }
 }

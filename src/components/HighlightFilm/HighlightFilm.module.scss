@@ -26,6 +26,10 @@
     &__dataFilm {
         width: 100%;
         height: auto;
+
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
     }
 
     &__date {
@@ -141,7 +145,7 @@
         }
         &__rating {
             & > img {
-                width: 35px;
+                width: 45px;
             }
             & > p {
                 font-size: 0.875rem;

@@ -70,28 +70,42 @@ const BlockBusters = ({ posterTitle, cards, posterBaseURL, setFilmData }) => {
             {
                 breakpoint: 525,
                 settings: {
+                slidesToShow: 2.8,
+                slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 450,
+                settings: {
+                slidesToShow: 4.6,
+                slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 380,
+                settings: {
+                slidesToShow: 4,
+                slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 325,
+                settings: {
+                slidesToShow: 3.2,
+                slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 270,
+                settings: {
                 slidesToShow: 2.5,
                 slidesToScroll: 1
                 }
             },
             {
-                breakpoint: 410,
-                settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 335,
+                breakpoint: 200,
                 settings: {
                 slidesToShow: 1.5,
-                slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 250,
-                settings: {
-                slidesToShow: 1,
                 slidesToScroll: 1
                 }
             }

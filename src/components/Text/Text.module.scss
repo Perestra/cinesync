@@ -1,16 +1,23 @@
-.white {
+.white, .gray, .black, .error {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+.white, .gray, .black {
   font-size: 0.875rem;
   font-weight: 400;
+}
+
+.white {
   color: var(--primaryText);
 }
 .gray {
-  font-size: 0.875rem;
-  font-weight: 400;
   color: var(--tertiaryText);
 }
 .black {
-  font-size: 0.875rem;
-  font-weight: 400;
   color: var(--secondaryText);
 }
 .error {
@@ -55,10 +62,3 @@
     font-size: 0.75rem;
   }
 }
-
-@media screen and (max-width: 768px) {
-  .black, .gray, .white {
-    font-size: 0.625rem;
-  }
-}
-  

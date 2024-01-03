@@ -17,13 +17,12 @@
 
 @media screen and (max-width: 1024px) {
     .blockbusters {
-        min-height: 250px;
+        min-height: 280px;
     }
 }
 
-@media screen and (max-width: 645px) {
+@media screen and (max-width: 768px) {
     .blockbusters {
-        min-height: 230px;
         & > h2 {
             font-size: 1.2rem;
             font-weight: 600;
@@ -31,5 +30,11 @@
             padding-bottom: 5px;
             border-bottom: 1px solid var(--tertiaryText);
         }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .blockbusters {
+        min-height: 150px;
     }
 }
