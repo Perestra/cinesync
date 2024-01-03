@@ -52,13 +52,3 @@
         }
     }
 }
-
-@media screen and (max-width:450px) {
-    .card {
-        width: 70px;
-        &__icon {
-            width: 10px;
-            height: 10px;
-        }
-    }
-}

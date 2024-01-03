@@ -77,35 +77,35 @@ const BlockBusters = ({ posterTitle, cards, posterBaseURL, setFilmData }) => {
             {
                 breakpoint: 450,
                 settings: {
-                slidesToShow: 4.6,
+                slidesToShow: 2.3,
                 slidesToScroll: 1
                 }
             },
             {
                 breakpoint: 380,
                 settings: {
-                slidesToShow: 4,
+                slidesToShow: 2,
                 slidesToScroll: 1
                 }
             },
             {
                 breakpoint: 325,
                 settings: {
-                slidesToShow: 3.2,
+                slidesToShow: 1.5,
                 slidesToScroll: 1
                 }
             },
             {
                 breakpoint: 270,
                 settings: {
-                slidesToShow: 2.5,
+                slidesToShow: 1.5,
                 slidesToScroll: 1
                 }
             },
             {
-                breakpoint: 200,
+                breakpoint: 240,
                 settings: {
-                slidesToShow: 1.5,
+                slidesToShow: 1,
                 slidesToScroll: 1
                 }
             }

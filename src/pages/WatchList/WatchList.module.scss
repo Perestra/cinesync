@@ -80,8 +80,5 @@
         &__data {
             max-width: 70px;       
         }
-        &__list {
-            grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-        }
     }
 }

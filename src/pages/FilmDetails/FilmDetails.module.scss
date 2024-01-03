@@ -78,28 +78,28 @@
     }
 
     &__filmData {
-        width: 100%;
-        height: auto;
-
+        position: relative;
         display: flex;
 
-        & > p:not(:first-child) {
-            padding: 0 10px;
-        }
-        & > p:first-child {
-            padding-right: 10px;
+        & > p:not(:last-child) {
+            padding-right: 15px;
+            margin-right: 15px;
+            border-right: 1px solid var(--primaryText);
         }
     }
 
     &__genres {
+        position: relative;
         display: flex;
 
-        border-right: 1px solid var(--primaryText);
-        border-left: 1px solid var(--primaryText);
-
         & > p {
-            padding: 0 10px;
             position: relative;
+        }
+        & > p:first-child {
+            padding-right: 10px;
+        }
+        & > p:not(:first-child) {
+            padding: 0 10px;
         }
         & > p:not(:last-child)::after {
             position: absolute;
@@ -269,16 +269,21 @@
             margin: auto auto 20px auto;
         }
         &__filmData {
-            & > p:not(:first-child) {
-                padding: 0 5px;
-            }
-            & > p:first-child {
+            & > p:not(:last-child) {
                 padding-right: 5px;
+                margin-right: 5px;
+                border-right: 1px solid var(--primaryText);
             }
         }
         &__genres {
-            & > p {
+            & > p:first-child {
+                padding-right: 5px;
+            }
+            & > p:not(:first-child) {
                 padding: 0 5px;
+            }
+            & > p:not(:last-child)::after {
+                right: -0.9px;
             }
         }
         &__filmInfos {
@@ -336,7 +341,7 @@
         }
         &__rating {
             & > img {
-                width: 35px;
+                width: 45px;
             }
             & > p {
                 font-size: 0.875rem;
@@ -344,29 +349,6 @@
         }
         &__overview, &__casters, &__videos, &__images {
             row-gap: 10px;
-        }
-    }
-}
-
-@media screen and (max-width: 450px) {
-    .filmDetails {
-        &__video {
-            & > video {
-             width: 80px;
-            }
-        }
-        &__btnTrailer {
-            left: 30px;
-            top: 20px;
-        }
-        &__iconTrailer {
-            width: 20px;
-            height: 20px;
-        }
-        &__image {
-            & > img {
-                width: 80px;
-            }
         }
     }
 }

@@ -89,17 +89,17 @@ const TvShowDetails = () => {
             {
                 breakpoint: 450,
                 settings: {
-                  slidesToShow: 3.8,
+                  slidesToShow: 2.2,
                   slidesToScroll: 1,
                 }
             },
             {
                 breakpoint: 350,
                 settings: {
-                  slidesToShow: 3,
+                  slidesToShow: 1.8,
                   slidesToScroll: 1,
                 }
-            },
+            }
         ]
     }
 
@@ -143,14 +143,12 @@ const TvShowDetails = () => {
                     </div> 
                     <div className={ styles.tv__highlightContent }>
                         <div className={ styles.tv__title }>
+                            { tv.first_air_date && <Text text={ tvDate(tv.first_air_date, tv.last_air_date) } className='gray' />}
                             <Title text={ tv.name } animation='tilt-in-left-1' />
-                            <div className={ styles.tv__info }>
-                                { tv.genres && 
-                                <div className={ styles.tv__genres}>
-                                    { tv.genres.map( genre => <Text key={ genre.id } text={ genre.name } className='gray' /> ) }
-                                </div> }
-                                { tv.first_air_date && <Text text={ tvDate(tv.first_air_date, tv.last_air_date) } className='gray' />}
-                            </div>     
+                            { tv.genres && 
+                            <div className={ styles.tv__genres}>
+                                { tv.genres.map( genre => <Text key={ genre.id } text={ genre.name } className='gray' /> ) }
+                            </div> }
                         </div>
                         { tv.vote_average != 0 && 
                         <div className={ styles.tv__rating }>

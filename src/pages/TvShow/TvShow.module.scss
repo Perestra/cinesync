@@ -84,8 +84,5 @@
         &__data {
             max-width: 70px;       
         }
-        &__ul {
-            grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-        }
     }
 }

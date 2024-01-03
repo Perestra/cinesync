@@ -91,17 +91,17 @@ const FilmDetails = () => {
             {
                 breakpoint: 450,
                 settings: {
-                  slidesToShow: 3.8,
+                  slidesToShow: 2.2,
                   slidesToScroll: 1,
                 }
             },
             {
                 breakpoint: 350,
                 settings: {
-                  slidesToShow: 3,
+                  slidesToShow: 1.8,
                   slidesToScroll: 1,
                 }
-            },
+            }
         ]
     }
 
@@ -153,14 +153,14 @@ const FilmDetails = () => {
                     </div> 
                     <div className={ styles.filmDetails__filmDetails }>
                         <div className={ styles.filmDetails__title }>
-                            <Title text={ movie.title } animation='tilt-in-left-1' />
                             <div className={ styles.filmDetails__filmData }>
                                 { movie.runtime && <Text text={ runTime(movie.runtime) } className='gray' />}
-                                <div className={ styles.filmDetails__genres}>
-                                    { movie?.genres?.map( genre => <Text key={ genre.id } text={ genre.name } className='gray' /> ) }
-                                </div>
                                 { movie.release_date && <Text text={ movieDate(movie.release_date) } className='gray' />}
-                            </div>     
+                            </div>
+                            <Title text={ movie.title } animation='tilt-in-left-1' />
+                            <div className={ styles.filmDetails__genres}>
+                                { movie?.genres?.map( genre => <Text key={ genre.id } text={ genre.name } className='gray' /> ) }
+                            </div>
                         </div>
                         { movie.vote_average && <div className={ styles.filmDetails__rating }>
                             <img src={imdb} alt="Logo do IMDB" />
