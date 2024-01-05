@@ -130,7 +130,7 @@ const FilmDetails = () => {
     <div className={ styles.filmDetails }>
         <div className={ styles.filmDetails__data }>
             <div className={ styles.filmDetails__backdrop } style={{ backgroundImage:`linear-gradient(0deg, rgba(12, 12, 12, 0.8) 0%, rgba(12, 12, 12, 0.8) 100%), url(${backDropBaseURL}${movie.backdrop_path})` }}>
-                <Header username={ authUser.username } mobile='visible' />
+                <Header username={ authUser.username } />
                 <section className={ styles.filmDetails__highlight }>
                     <div className={ styles.filmDetails__poster }>
                         { movie.poster_path && 

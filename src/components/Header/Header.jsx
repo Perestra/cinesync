@@ -7,7 +7,7 @@ import UserMenu from 'src/components/UserMenu/UserMenu';
 import { IoIosArrowDown } from "react-icons/io";
 import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
 
-const Header = ({ display, content, mobile, username }) => {
+const Header = ({ display, content, username }) => {
 
   const [ userMenu, setUserMenu ] = useState(false)
   const [ activeMenu, setActiveMenu ] = useState(false)
@@ -44,7 +44,7 @@ const Header = ({ display, content, mobile, username }) => {
             />
           </div>  
         </div>
-        <div className={ `${ styles.header__icons } ${styles[mobile]}` }>
+        <div className={ `${ styles.header__icons }` }>
           { activeMenu? 
             <HiX className={ styles.header__iconMenu } onClick={ () => closeMenu() } />: 
             <HiOutlineMenuAlt3 className={ styles.header__iconMenu } onClick={ () => openMenu() } /> 

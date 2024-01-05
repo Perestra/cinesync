@@ -33,10 +33,12 @@ const Card = ({ id, type, name, date, src, alt, onClick }) => {
   
   return (
     <div className={ styles.card }>
-      { !isInAccountWatchList(id)?
-        <IoStarOutline className={ styles.card__icon } onClick={ () => addInWatchList(id, name, type, date, src) } />: 
-        <IoStar className={ styles.card__icon} onClick={ () => remFromWatchList(id) } />
-      }
+      <div className={ styles.card__favorite }>
+        { !isInAccountWatchList(id)?
+          <IoStarOutline className={ styles.card__icon } onClick={ () => addInWatchList(id, name, type, date, src) } />: 
+          <IoStar className={ styles.card__icon} onClick={ () => remFromWatchList(id) } />
+        }  
+      </div>
       <img className={ styles.card__image } src={ src } alt={ alt } onClick={ onClick }  />
     </div>
   )

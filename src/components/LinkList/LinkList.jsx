@@ -6,19 +6,21 @@ import { NavLink } from 'react-router-dom'
 const LinkList = ({ to, title, onClick }) => {
 
   const activeStyle = {
-    color: '#ED8423',
+    color: 'var(--primaryOrange)',
+    fontWeight: 600,
+    letterSpacing: '0.7px',
     transition: 'all ease-in-out 0.2s'
-}
+  }
 
   return (
     <li className={ styles.list }>
       <NavLink 
         to={ to }
-        className={ styles.list__navlink } 
+        className={ styles.list__navLink } 
         style={({ isActive }) => isActive ? activeStyle : undefined}
         onClick={ onClick }
       >
-        <p className={ styles.list__text }>{ title }</p>  
+        { title }
       </NavLink>
     </li>
   )
