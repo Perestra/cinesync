@@ -1,10 +1,4 @@
-.white, .gray, .black, .error {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-}
+
 
 .white, .gray, .black {
   font-size: 0.875rem;
