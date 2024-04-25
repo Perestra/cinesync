@@ -119,6 +119,9 @@
             display: block; 
         }
     }
+    .nonVisible {
+        display: none;
+    }
     .active {
         display: flex;
     }

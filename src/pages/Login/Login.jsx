@@ -38,7 +38,7 @@ const Login = () => {
                         styleClassName={errors?.username && "form__inputError"}
                         register={register}
                         required
-                        // validate={ () => findAccount === false }
+                        // validate={ (value) => findAccount === value }
                         iconError={errors?.username && <IoAlertCircleOutline className={ styles.login__iconError } />}
                         errorText= { errors?.username?.type === 'required' && <Text className='error' text='Este campo é obrigatório!' /> }
                     />

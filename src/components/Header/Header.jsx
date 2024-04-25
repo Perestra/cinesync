@@ -44,7 +44,7 @@ const Header = ({ display, content, username }) => {
             />
           </div>  
         </div>
-        <div className={ `${ styles.header__icons }` }>
+        <div className={ `${ styles.header__icons } ${styles[display]}` }>
           { activeMenu? 
             <HiX className={ styles.header__iconMenu } onClick={ () => closeMenu() } />: 
             <HiOutlineMenuAlt3 className={ styles.header__iconMenu } onClick={ () => openMenu() } /> 
